@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ascendia Investments Co — Investor Syndicate Agreement</title>
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <!-- Suppress Tailwind CDN production notice -->
+  <script>
+    (function() {
+      const origWarn = console.warn;
+      console.warn = function(...args) {
+        if (typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com should not be used in production')) return;
+        origWarn.apply(console, args);
+      };
+    })();
+  </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              400: '#36abf7',
+              500: '#0c8fe9',
+              600: '#0270c7',
+              700: '#0359a1',
+              900: '#0c3f6e',
+            },
+            gold: {
+              300: '#fde047',
+              400: '#facc15',
+              500: '#eab308',
+              600: '#ca8a04',
+            },
+            navy: {
+              800: '#0d1527',
+              850: '#090f1d',
+              900: '#060a15',
+              950: '#03050a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+            serif: ['Cinzel', 'Playfair Display', 'Georgia', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #060a15;
+      color: #f1f5f9;
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fef08a 0%, #eab308 50%, #ca8a04 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glass-card {
+      background: rgba(18, 29, 54, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Print styles: convert to clean institutional black/white paper format */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        font-size: 11pt !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .glass-card, .glass-panel {
+        background: transparent !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #0f172a !important;
+        box-shadow: none !important;
+      }
+      .text-white {
+        color: #0f172a !important;
+      }
+      .text-slate-300, .text-slate-400 {
+        color: #334155 !important;
+      }
+      .gold-gradient-text {
+        -webkit-text-fill-color: #0f172a !important;
+        color: #0f172a !important;
+      }
+      .border-white\/10, .border-white\/5 {
+        border-color: #cbd5e1 !important;
+      }
+      .bg-navy-900, .bg-navy-850, .bg-navy-800 {
+        background: #ffffff !important;
+      }
+      .contract-container {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .page-break {
+        page-break-before: always !important;
+        break-before: page !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-navy-900 text-slate-100 antialiased min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+
+  <!-- TOP FLOATING BAR (NO-PRINT) -->
+  <header class="no-print max-w-4xl mx-auto mb-6 flex items-center justify-between p-4 rounded-2xl glass-card border border-white/10 shadow-2xl">
+    <div class="flex items-center space-x-3">
+      <img src="logo.jpg" alt="Ascendia Logo" class="w-10 h-10 rounded-xl object-cover border border-gold-500/40 shadow-md">
+      <div>
+        <h1 class="text-sm font-bold text-white tracking-wider uppercase font-serif">Ascendia Investments Co</h1>
+        <p class="text-[11px] text-slate-400">Official Investor Syndicate Agreement</p>
+      </div>
+    </div>
+    <div class="flex items-center space-x-3">
+      <a href="index.html" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center space-x-1.5 transition-colors">
+        <span>←</span>
+        <span>Back to Pitch Deck</span>
+      </a>
+      <button onclick="window.print()" class="px-4 py-1.5 rounded-xl bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-navy-950 text-xs font-bold shadow-lg shadow-gold-500/20 flex items-center space-x-1.5 transition-all">
+        <span>🖨️</span>
+        <span>Print / Save as PDF</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTRACT CONTAINER -->
+  <main class="contract-container max-w-4xl mx-auto bg-navy-850 border border-white/10 rounded-3xl p-6 sm:p-12 shadow-2xl">
+    
+    <!-- CONTRACT HEADER -->
+    <div class="border-b border-white/10 pb-8 mb-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center space-x-4">
+        <img src="logo.jpg" alt="Ascendia Logo" class="w-20 h-20 rounded-2xl object-cover border-2 border-gold-500/50 shadow-xl shadow-gold-500/20">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-gold-400">Genesis Syndicate Pool I</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-white font-serif tracking-tight mt-0.5">
+            Investor Syndicate Agreement
+          </h1>
+          <p class="text-xs text-slate-400 mt-1">Confidential · Sovereign Private Syndicate Allocation</p>
+        </div>
+      </div>
+      <div class="text-center sm:text-right text-xs text-slate-400 space-y-1">
+        <div><span class="text-slate-500">Document Ref:</span> <span class="font-mono text-gold-400 font-bold">ASC-SYN-2026-01</span></div>
+        <div><span class="text-slate-500">Effective Date:</span> <span id="currentDateDisplay" class="font-mono text-white">September 2026</span></div>
+        <div><span class="text-slate-500">Governing Law:</span> <span class="text-slate-300">Delaware, USA</span></div>
+      </div>
+    </div>
+
+    <!-- PREAMBLE -->
+    <div class="p-4 rounded-xl bg-navy-900/80 border border-white/5 text-xs text-slate-300 leading-relaxed mb-8">
+      <p class="font-semibold text-white mb-1">IMPORTANT LEGAL NOTICE:</p>
+      <p>
+        This Investor Syndicate Agreement (the "Agreement") is entered into by and between <strong>Ascendia Investments Co</strong> (the "Manager" or "General Partner") and the subscriber identified below (the "Investor"). By executing this Agreement, the Investor commits capital to the <strong>Ascendia Genesis Syndicate Pool</strong> under the operating parameters, risk controls, and fee schedules set forth herein.
+      </p>
+    </div>
+
+    <!-- PART 1: INVESTOR INFORMATION -->
+    <section class="mb-10">
+      <h2 class="text-base font-bold uppercase tracking-wider text-gold-400 font-serif border-b border-white/10 pb-2 mb-4 flex items-center justify-between">
+        <span>Part I: Subscriber Information</span>
+        <span class="text-xs text-slate-500 font-sans font-normal lowercase">fillable / printable</span>
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div>
+          <label class="block text-slate-400 font-medium mb-1">Individual or Entity Legal Name *</label>
+          <input type="text" id="investorName" placeholder="e.g. John Doe / Doe Family Trust LLC" class="w-full bg-navy-900 border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-gold-400 font-medium">
+        </div>
+        <div>
+          <label class="block text-slate-400 font-medium mb-1">Authorized Signatory Name & Title (if Entity)</label>
+          <input type="text" id="signatoryTitle" placeholder="e.g. Managing Member / Trustee" class="w-full bg-navy-900 border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-gold-400">
+        </div>
+        <div>
+          <label class="block text-slate-400 font-medium mb-1">Email Address *</label>
+          <input type="email" id="investorEmail" placeholder="investor@domain.com" class="w-full bg-navy-900 border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-gold-400">
+        </div>
+        <div>
+          <label class="block text-slate-400 font-medium mb-1">Phone Number *</label>
+          <input type="tel" id="investorPhone" placeholder="+1 (555) 000-0000" class="w-full bg-navy-900 border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-gold-400">
+        </div>
+        <div class="sm:col-span-2">
+          <label class="block text-slate-400 font-medium mb-1">Residential / Registered Address *</label>
+          <input type="text" id="investorAddress" placeholder="123 Financial Way, Suite 400, City, State, Zip, Country" class="w-full bg-navy-900 border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-gold-400">
+        </div>
+      </div>
+    </section>
+
+    <!-- PART 2: TIER SELECTION & ALLOCATION SIZING -->
+    <section class="mb-10">
+      <h2 class="text-base font-bold uppercase tracking-wider text-gold-400 font-serif border-b border-white/10 pb-2 mb-4">
+        Part II: Allocation Tier Selection
+      </h2>
+      <p class="text-xs text-slate-300 mb-4">
+        Select your intended investment allocation tier. All tiers operate on an <strong>80% Investor / 20% GP</strong> profit split with a <strong>2.0% Annual Management Fee</strong> and strict High-Water Mark.
+      </p>
+
+      <!-- Tier Selection Radio Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-5">
+        <!-- Tier 1 -->
+        <label class="cursor-pointer glass-card p-4 rounded-xl border border-white/10 hover:border-gold-500/40 block transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-[10px] font-mono font-bold text-slate-400 uppercase">Tier 1</span>
+            <input type="radio" name="tier" value="10000" checked onchange="updateSelectedTier(10000, 'Tier 1 (Community)')" class="accent-gold-500">
+          </div>
+          <div class="text-lg font-extrabold text-white font-serif">$10,000</div>
+          <p class="text-xs text-slate-300 font-semibold mt-0.5">Community Member</p>
+          <p class="text-[11px] text-slate-400 mt-1">Monthly statements & private channel access</p>
+        </label>
+
+        <!-- Tier 2 -->
+        <label class="cursor-pointer glass-card p-4 rounded-xl border border-white/10 hover:border-gold-500/40 block transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-[10px] font-mono font-bold text-slate-400 uppercase">Tier 2</span>
+            <input type="radio" name="tier" value="20000" onchange="updateSelectedTier(20000, 'Tier 2 (Core Partner)')" class="accent-gold-500">
+          </div>
+          <div class="text-lg font-extrabold text-white font-serif">$20,000</div>
+          <p class="text-xs text-slate-300 font-semibold mt-0.5">Core Partner</p>
+          <p class="text-[11px] text-slate-400 mt-1">Bi-weekly trade telemetry & market briefings</p>
+        </label>
+
+        <!-- Tier 3 -->
+        <label class="cursor-pointer glass-card p-4 rounded-xl border border-white/10 hover:border-gold-500/40 block transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-[10px] font-mono font-bold text-slate-400 uppercase">Tier 3</span>
+            <input type="radio" name="tier" value="30000" onchange="updateSelectedTier(30000, 'Tier 3 (Advantage)')" class="accent-gold-500">
+          </div>
+          <div class="text-lg font-extrabold text-white font-serif">$30,000</div>
+          <p class="text-xs text-slate-300 font-semibold mt-0.5">Advantage Tier</p>
+          <p class="text-[11px] text-slate-400 mt-1">Priority expansion allocation rights</p>
+        </label>
+
+        <!-- Tier 4 -->
+        <label class="cursor-pointer glass-card p-4 rounded-xl border border-white/10 hover:border-gold-500/40 block transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-[10px] font-mono font-bold text-slate-400 uppercase">Tier 4</span>
+            <input type="radio" name="tier" value="40000" onchange="updateSelectedTier(40000, 'Tier 4 (Select)')" class="accent-gold-500">
+          </div>
+          <div class="text-lg font-extrabold text-white font-serif">$40,000</div>
+          <p class="text-xs text-slate-300 font-semibold mt-0.5">Select Tier</p>
+          <p class="text-[11px] text-slate-400 mt-1">Custom bimonthly payout options</p>
+        </label>
+
+        <!-- Tier 5 -->
+        <label class="cursor-pointer glass-card p-4 rounded-xl border border-gold-500/40 bg-gold-500/5 block transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-[10px] font-mono font-bold text-gold-400 uppercase">Tier 5</span>
+            <input type="radio" name="tier" value="50000" onchange="updateSelectedTier(50000, 'Tier 5 (Premium)')" class="accent-gold-500">
+          </div>
+          <div class="text-lg font-extrabold text-gold-400 font-serif">$50,000</div>
+          <p class="text-xs text-white font-semibold mt-0.5">Premium Partner</p>
+          <p class="text-[11px] text-slate-300 mt-1">Monthly strategy sync with CIO Cody Paulson</p>
+        </label>
+
+        <!-- Tier 6 -->
+        <label class="cursor-pointer glass-card p-4 rounded-xl border border-brand-400/40 bg-brand-500/10 block transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-[10px] font-mono font-bold text-brand-400 uppercase">VIP Tier</span>
+            <input type="radio" name="tier" value="100000" onchange="updateSelectedTier(100000, 'Tier 6 (VIP Anchor)')" class="accent-gold-500">
+          </div>
+          <div class="text-lg font-extrabold text-white font-serif">$100,000+</div>
+          <p class="text-xs text-brand-300 font-semibold mt-0.5">Anchor VIP</p>
+          <p class="text-[11px] text-slate-300 mt-1">Direct VIP priority line & custom terms</p>
+        </label>
+      </div>
+
+      <div class="p-4 rounded-xl bg-navy-900 border border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+        <div>
+          <span class="text-slate-400">Confirmed Subscription Commitment:</span>
+          <span id="tierCommitmentText" class="font-mono text-base font-extrabold text-gold-400 block sm:inline sm:ml-2">$10,000 USD (Tier 1 Community)</span>
+        </div>
+        <div class="text-slate-400">
+          Settlement: <span class="text-white font-semibold">USD Wire or USDC/USDT</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PART 3: DISTRIBUTION & PAYOUT ELECTION -->
+    <section class="mb-10">
+      <h2 class="text-base font-bold uppercase tracking-wider text-gold-400 font-serif border-b border-white/10 pb-2 mb-4">
+        Part III: Distribution & Payout Schedule Election
+      </h2>
+      <p class="text-xs text-slate-300 mb-4">
+        Please select your distribution preference below:
+      </p>
+      <div class="space-y-3 text-xs">
+        <label class="p-4 rounded-xl glass-card border border-white/10 hover:border-gold-500/40 flex items-start space-x-3 cursor-pointer">
+          <input type="radio" name="payoutElection" value="bimonthly" checked class="mt-0.5 accent-gold-500">
+          <div>
+            <div class="font-bold text-white text-sm">Option A: Bimonthly Cash Payouts (Every 2 Months)</div>
+            <p class="text-slate-300 mt-1 leading-relaxed">
+              Net trading profits attributable to the Investor's Capital Account (80% net share) will be calculated and remitted bimonthly directly to the Investor's designated bank account or digital asset wallet.
+            </p>
+          </div>
+        </label>
+
+        <label class="p-4 rounded-xl glass-card border border-white/10 hover:border-gold-500/40 flex items-start space-x-3 cursor-pointer">
+          <input type="radio" name="payoutElection" value="compounding" class="mt-0.5 accent-gold-500">
+          <div>
+            <div class="font-bold text-white text-sm">Option B: Automatic Reinvestment & Compounding</div>
+            <p class="text-slate-300 mt-1 leading-relaxed">
+              All net trading profits are automatically reinvested into the Investor's Capital Account to maximize compound growth. The Investor may switch to bimonthly payouts prior to any quarter-end with 15 days notice.
+            </p>
+          </div>
+        </label>
+      </div>
+    </section>
+
+    <!-- PART 4: OPERATING TERMS, RISK CONTROL & FEES -->
+    <section class="mb-10 page-break">
+      <h2 class="text-base font-bold uppercase tracking-wider text-gold-400 font-serif border-b border-white/10 pb-2 mb-4">
+        Part IV: Syndicate Operating Terms & Mandate
+      </h2>
+      
+      <div class="space-y-4 text-xs text-slate-300 leading-relaxed">
+        <div class="p-3.5 rounded-xl bg-navy-900/80 border border-white/5">
+          <h4 class="font-bold text-white mb-1">4.1 The Ascendia Creed & Mandate</h4>
+          <p>
+            The General Partner shall manage the Pool in strict adherence to the Ascendia Creed: (a) <strong>Chartists, Not Gamblers</strong> — Trades require verified technical confluence and invalidation levels ("If there is no set up, there is no trade"); (b) <strong>Capital Preservation First</strong> — Survival precedes profit. The Manager strictly adheres to the <strong>2.0% Maximum Risk Rule</strong>; (c) <strong>Clarity Over Chaos</strong> — High-conviction focus on clean breakout trends with minimum 1:3.5 Risk-to-Reward ratio.
+          </p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-navy-900/80 border border-white/5">
+          <h4 class="font-bold text-white mb-1">4.2 The 2.0% Maximum Risk Rule</h4>
+          <p>
+            The General Partner warrants that under no circumstances shall any single trade position risk more than two percent (2.0%) of the Pool's total equity on a stop-loss basis. Hard stop-loss orders are submitted synchronously with trade entry.
+          </p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-navy-900/80 border border-white/5">
+          <h4 class="font-bold text-white mb-1">4.3 Management Fee & Performance Allocation</h4>
+          <p>
+            (a) <strong>Management Fee:</strong> The Manager shall receive an annualized Management Fee of <strong>two percent (2.0%)</strong> of the Investor's Capital Account balance, accrued monthly and paid bimonthly to support research, data telemetry, and operational execution.<br>
+            (b) <strong>Performance Fee:</strong> The Manager is entitled to a <strong>twenty percent (20%)</strong> Performance Allocation on net trading profits (yielding an <strong>80% Investor / 20% GP</strong> split).<br>
+            (c) <strong>High-Water Mark (HWM):</strong> Performance fees are subject to a cumulative High-Water Mark. If the account experiences a drawdown, zero performance fees are earned until all prior losses are 100% recouped.
+          </p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-navy-900/80 border border-white/5">
+          <h4 class="font-bold text-white mb-1">4.4 Lock-Up Period & Quarterly Redemptions</h4>
+          <p>
+            (a) <strong>Initial Lock-Up:</strong> All subscriptions are subject to an initial <strong>three (3) month (90-day) lock-up period</strong> from the capital deployment date to allow trading setups to mature.<br>
+            (b) <strong>Quarterly Redemptions:</strong> Following the lock-up period, the Investor may withdraw all or part of their capital balance at the conclusion of any calendar quarter by providing at least <strong>thirty (30) days prior written notice</strong> to the Manager.
+          </p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-navy-900/80 border border-white/5">
+          <h4 class="font-bold text-white mb-1">4.5 General Partner 10%+ Co-Investment</h4>
+          <p>
+            The General Partner affirms that its principals maintain not less than <strong>ten percent (10.0%)</strong> direct cash capital co-invested in the Pool side-by-side with Investors on identical terms.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PART 5: INVESTOR REPRESENTATIONS & RISK ACKNOWLEDGMENT -->
+    <section class="mb-10">
+      <h2 class="text-base font-bold uppercase tracking-wider text-gold-400 font-serif border-b border-white/10 pb-2 mb-4">
+        Part V: Representations, Warranties & Risk Disclosure
+      </h2>
+      <div class="text-xs text-slate-300 space-y-2 leading-relaxed">
+        <p>
+          The Investor hereby represents, warrants, and agrees that:
+        </p>
+        <ul class="list-disc list-inside space-y-1.5 pl-2 text-slate-300">
+          <li><strong>Investment Sophistication:</strong> The Investor possesses sufficient financial knowledge and experience to evaluate the merits and risks of high-velocity digital asset trading.</li>
+          <li><strong>Risk Capital:</strong> The Investor affirms that the committed capital represents risk capital, the potential loss of which will not adversely affect the Investor's standard of living.</li>
+          <li><strong>Legitimacy of Funds:</strong> All funds contributed are from lawful, legitimate origins and comply with all Anti-Money Laundering (AML) and Counter-Terrorism Financing (CTF) standards.</li>
+          <li><strong>Confidentiality:</strong> Proprietary indicators, trade execution logs, and syndicate communications are confidential trade secrets of Ascendia Investments Co.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PART 6: FORMAL SIGNATURE BLOCK -->
+    <section class="border-t border-white/10 pt-8 mb-6">
+      <h2 class="text-base font-bold uppercase tracking-wider text-gold-400 font-serif mb-6">
+        Part VI: Execution & Signatures
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs">
+        <!-- Investor Signature Box -->
+        <div class="p-5 rounded-2xl bg-navy-900 border border-white/10 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Investor Execution:</div>
+            <div class="space-y-3">
+              <div>
+                <label class="block text-slate-400 mb-1">Investor Signature (Type full legal name as digital signature):</label>
+                <input type="text" id="investorSignature" placeholder="Type Full Legal Name to Sign" class="w-full bg-navy-950 border border-gold-500/30 rounded-lg px-3 py-2 text-gold-400 font-serif font-bold text-sm focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1">Execution Date:</label>
+                <input type="date" id="executionDate" class="w-full bg-navy-950 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none">
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 pt-3 border-t border-white/5 text-[10px] text-slate-500">
+            By typing my name, I certify under penalty of perjury that I am the authorized signer and agree to all terms of this Agreement.
+          </div>
+        </div>
+
+        <!-- General Partner Acceptance Box -->
+        <div class="p-5 rounded-2xl bg-navy-900 border border-gold-500/30 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-bold uppercase tracking-wider text-gold-400 mb-3">Ascendia Investments Co (General Partner):</div>
+            
+            <div class="space-y-4">
+              <!-- Cody Paulson Signature -->
+              <div>
+                <div class="font-serif font-bold text-white text-base tracking-wider text-brand-400">Cody Paulson</div>
+                <div class="text-[11px] text-slate-300 font-medium">CODY PAULSON · Managing Partner & Chief Investment Officer</div>
+                <div class="text-[10px] text-emerald-400 font-mono mt-0.5">✓ Cryptographically Approved · Genesis Pool</div>
+              </div>
+
+              <!-- Xino Kai Signature -->
+              <div class="pt-2 border-t border-white/5">
+                <div class="font-serif font-bold text-white text-base tracking-wider text-gold-400">Xino Kai</div>
+                <div class="text-[11px] text-slate-300 font-medium">XINO KAI · Head of Investor Relations & Member Success</div>
+                <div class="text-[10px] text-emerald-400 font-mono mt-0.5">✓ Onboarding Verified · Allocations Desk</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-white/5 text-[10px] text-slate-400">
+            Ascendia Investments Co · 767 Fifth Avenue, New York, NY · ir@ascendiainvestments.com
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXHIBIT A & B REMITTANCE & PAYOUT DETAILS -->
+    <section class="border-t border-white/10 pt-6 text-xs text-slate-400">
+      <h3 class="font-bold text-white uppercase tracking-wider mb-2">Exhibit A: Funding & Remittance</h3>
+      <p class="mb-3">
+        Upon execution, remitting instructions for USD Bank Wire or Institutional Stablecoin (USDC/USDT) deposit addresses will be securely provided via private member onboarding pack by <strong>Xino Kai</strong> at <a href="mailto:ir@ascendiainvestments.com" class="text-brand-400 underline">ir@ascendiainvestments.com</a>.
+      </p>
+      <div class="flex items-center justify-between pt-4 border-t border-white/5 text-[10px] text-slate-500">
+        <span>© 2026 Ascendia Investments Co. All rights reserved. Confidential.</span>
+        <span>Ref: ASC-SYN-2026-01</span>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Set default date
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('executionDate').value = today;
+    document.getElementById('currentDateDisplay').innerText = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+    function updateSelectedTier(amount, name) {
+      document.getElementById('tierCommitmentText').innerText = '$' + amount.toLocaleString() + ' USD (' + name + ')';
+    }
+  </script>
+</body>
+</html>

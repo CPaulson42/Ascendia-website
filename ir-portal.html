@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IR Portal — Ascendia Investments Co</title>
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: { 300:'#7cc7fb', 400:'#36abf7', 500:'#0c8fe9', 600:'#0270c7' },
+            gold:  { 300:'#fde047', 400:'#facc15', 500:'#eab308' },
+            navy:  { 800:'#0d1527', 850:'#090f1d', 900:'#060a15', 950:'#03050a' },
+          },
+          fontFamily: {
+            sans:   ['Inter','system-ui','sans-serif'],
+            cinzel: ['Cinzel','Georgia','serif'],
+            mono:   ['JetBrains Mono','monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body { background:#03050a; }
+    .glass {
+      background: rgba(255,255,255,0.035);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .gold-glow  { box-shadow: 0 0 40px -10px rgba(234,179,8,0.28); }
+    .brand-glow { box-shadow: 0 0 45px -10px rgba(12,143,233,0.25); }
+
+    /* Markdown-rendered content styles */
+    .prose-ir h2 { font-family:'Cinzel',serif; color:#facc15; font-size:1.25rem; font-weight:700; margin:2rem 0 .75rem; border-bottom:1px solid rgba(250,204,21,.2); padding-bottom:.5rem; }
+    .prose-ir h3 { color:#36abf7; font-size:1rem; font-weight:700; margin:1.5rem 0 .5rem; text-transform:uppercase; letter-spacing:.06em; }
+    .prose-ir h4 { color:#94a3b8; font-size:.85rem; font-weight:600; margin:1rem 0 .35rem; text-transform:uppercase; letter-spacing:.05em; }
+    .prose-ir p  { color:#cbd5e1; font-size:.875rem; line-height:1.7; margin:.5rem 0; }
+    .prose-ir li { color:#cbd5e1; font-size:.875rem; line-height:1.7; margin:.25rem 0 .25rem 1.25rem; list-style:disc; }
+    .prose-ir li li { list-style:circle; }
+    .prose-ir strong { color:#f1f5f9; font-weight:700; }
+    .prose-ir em    { color:#94a3b8; font-style:italic; }
+    .prose-ir blockquote {
+      border-left: 3px solid #36abf7;
+      background: rgba(54,171,247,.07);
+      padding: .75rem 1rem;
+      border-radius: 0 .75rem .75rem 0;
+      margin: .75rem 0;
+      color: #cbd5e1;
+      font-size: .875rem;
+      line-height: 1.7;
+    }
+    .prose-ir blockquote strong { color:#36abf7; }
+    .prose-ir hr { border-color:rgba(255,255,255,.07); margin:2rem 0; }
+    .prose-ir table { width:100%; border-collapse:collapse; font-size:.8rem; margin:1rem 0; }
+    .prose-ir th  { background:rgba(54,171,247,.12); color:#36abf7; padding:.6rem 1rem; text-align:left; border:1px solid rgba(255,255,255,.08); font-weight:700; text-transform:uppercase; letter-spacing:.05em; font-size:.7rem; }
+    .prose-ir td  { padding:.55rem 1rem; border:1px solid rgba(255,255,255,.06); color:#cbd5e1; vertical-align:top; }
+    .prose-ir tr:nth-child(even) td { background:rgba(255,255,255,.025); }
+    .prose-ir code { background:rgba(54,171,247,.12); color:#7cc7fb; padding:.1rem .4rem; border-radius:.3rem; font-family:'JetBrains Mono',monospace; font-size:.8rem; }
+
+    /* Slide card */
+    .slide-card { transition: transform .2s, box-shadow .2s; }
+    .slide-card:hover { transform:translateY(-2px); box-shadow:0 12px 40px rgba(0,0,0,.5); }
+
+    /* Print */
+    @media print {
+      nav, .no-print { display:none !important; }
+      body { background:white; color:black; }
+      .prose-ir { color:black; }
+    }
+  </style>
+</head>
+<body class="min-h-screen font-sans text-white">
+
+  <!-- Nav bar -->
+  <nav class="sticky top-0 z-50 glass border-b border-white/10 px-4 sm:px-6 py-3 flex items-center justify-between no-print">
+    <div class="flex items-center space-x-3">
+      <img src="logo.jpg" alt="Ascendia" class="w-8 h-8 rounded-lg object-cover border border-gold-500/40">
+      <div>
+        <span class="text-sm font-bold text-white" style="font-family:'Cinzel',serif">ASCENDIA</span>
+        <span class="hidden sm:inline ml-2 text-xs text-slate-500 font-mono uppercase tracking-widest">IR Portal</span>
+      </div>
+      <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/20 text-rose-400 border border-rose-500/30 uppercase tracking-wider">🔒 Confidential</span>
+    </div>
+    <div class="flex items-center space-x-2 sm:space-x-3">
+      <!-- Direct Link to Pitch Deck -->
+      <a href="PItch Deck.html" target="_blank" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-gold-500/15 hover:bg-gold-500 text-gold-400 hover:text-navy-950 text-xs font-bold transition-all border border-gold-500/30">
+        <span>📊</span>
+        <span>Pitch Deck ↗</span>
+      </a>
+
+      <!-- Direct Link to Syndicate Agreement -->
+      <a href="agreement.html" target="_blank" class="hidden md:flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-colors border border-white/10">
+        <span>📄</span>
+        <span>Agreement ↗</span>
+      </a>
+
+      <div class="w-px h-5 bg-white/10 mx-1 hidden sm:block"></div>
+
+      <button onclick="window.print()" class="hidden sm:flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-colors border border-white/10">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+        <span>Print</span>
+      </button>
+
+      <a href="/logout" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-rose-600 text-slate-300 hover:text-white text-xs font-semibold transition-colors border border-white/10">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+        <span>Sign Out</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Background -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-500/8 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+    <!-- Header -->
+    <div class="mb-10">
+      <div class="flex items-center space-x-2 mb-3">
+        <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+        <span class="text-xs font-bold font-mono uppercase tracking-widest text-gold-400">Internal Use Only</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-2" style="font-family:'Cinzel',serif">IR Master Pitch Playbook</h1>
+      <p class="text-slate-400 text-sm">Ascendia Investments Co · Investor Relations &amp; Capital Raising Team</p>
+    </div>
+
+    <!-- Quick-jump cards -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 no-print">
+      <a href="#anchor-numbers" class="glass rounded-xl p-3 hover:border-brand-500/40 transition-colors group">
+        <div class="text-brand-400 text-xs font-bold uppercase tracking-wide mb-1">3 Numbers</div>
+        <div class="text-white text-xs">Anchor Stats to Memorize</div>
+      </a>
+      <a href="#slide-guide" class="glass rounded-xl p-3 hover:border-gold-500/40 transition-colors group">
+        <div class="text-gold-400 text-xs font-bold uppercase tracking-wide mb-1">13 Slides</div>
+        <div class="text-white text-xs">Speech Track &amp; Guide</div>
+      </a>
+      <a href="#objections" class="glass rounded-xl p-3 hover:border-emerald-500/40 transition-colors group">
+        <div class="text-emerald-400 text-xs font-bold uppercase tracking-wide mb-1">FAQ</div>
+        <div class="text-white text-xs">Objection Handling</div>
+      </a>
+      <a href="#email-template" class="glass rounded-xl p-3 hover:border-purple-500/40 transition-colors group">
+        <div class="text-purple-400 text-xs font-bold uppercase tracking-wide mb-1">Email</div>
+        <div class="text-white text-xs">Onboarding Template</div>
+      </a>
+    </div>
+
+    <!-- ── SECTION: Manifesto ── -->
+    <section class="glass rounded-3xl p-6 sm:p-8 mb-6 brand-glow">
+      <div class="flex items-center space-x-2 mb-4">
+        <span class="text-2xl">🏛️</span>
+        <h2 class="text-lg font-extrabold text-gold-400" style="font-family:'Cinzel',serif">The Ascendia Manifesto &amp; Core Creed</h2>
+      </div>
+      <div class="prose-ir">
+        <blockquote>
+          <p><strong>The Ascendia Manifesto: Rise Above the Noise.</strong></p>
+          <p><em>The crypto market is a chaotic ocean of noise, FOMO, and wrecked accounts. The majority drown because they treat it like a casino. They chase green candles and panic-sell red ones.</em></p>
+          <p><em>Ascendia was built for the minority who are ready to treat this like a profession.</em></p>
+          <p><em>Ascendia means "the state of rising." But we do not rise through luck or hype. We ascend through structure, discipline, and an unwavering respect for the market.</em></p>
+        </blockquote>
+        <h3 class="!text-gold-400 !mt-4">Our Creed</h3>
+        <ol class="space-y-3 text-slate-300 text-sm leading-relaxed list-decimal ml-4">
+          <li><strong class="text-white">We Are Chartists, Not Gamblers.</strong> We don't buy because an influencer tweeted a ticker. We buy because price action dictated an entry, and risk parameters confirmed the setup. If there is no setup, there is no trade.</li>
+          <li><strong class="text-white">Capital Preservation First. Profit Second.</strong> In the high-velocity world, survival is the primary skill. We obsess over our downside protection so that our upside can take care of itself. We follow the 2% rule religiously.</li>
+          <li><strong class="text-white">Clarity Over Chaos.</strong> While others are drowning in hundreds of Telegram alerts, we focus on the few setups that matter. We filter the signal from the noise.</li>
+        </ol>
+        <p class="mt-4 text-center text-base font-bold text-brand-400 italic">"We are not here to get rich quick. We are here to get rich for sure."</p>
+      </div>
+    </section>
+
+    <!-- ── SECTION: 3 Anchor Numbers ── -->
+    <section id="anchor-numbers" class="glass rounded-3xl p-6 sm:p-8 mb-6">
+      <div class="flex items-center space-x-2 mb-5">
+        <span class="text-2xl">🧭</span>
+        <h2 class="text-lg font-extrabold text-gold-400" style="font-family:'Cinzel',serif">The 3 Anchor Numbers to Cement in Every Pitch</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="glass rounded-2xl p-5 text-center brand-glow">
+          <div class="text-4xl font-extrabold text-brand-400 mb-1" style="font-family:'Cinzel',serif; text-shadow:0 0 20px rgba(54,171,247,.5)">38.5%</div>
+          <div class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">Target Net Annual ROI</div>
+          <div class="text-xs text-slate-500">Asymmetric 1:3.5+ risk-reward setups &amp; trend execution</div>
+        </div>
+        <div class="glass rounded-2xl p-5 text-center" style="box-shadow:0 0 40px -10px rgba(239,68,68,.25)">
+          <div class="text-4xl font-extrabold text-rose-400 mb-1" style="font-family:'Cinzel',serif; text-shadow:0 0 20px rgba(239,68,68,.5)">2.0%</div>
+          <div class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">Maximum Risk Rule</div>
+          <div class="text-xs text-slate-500">Hard mathematical stop-loss per trade</div>
+        </div>
+        <div class="glass rounded-2xl p-5 text-center gold-glow">
+          <div class="text-4xl font-extrabold text-gold-400 mb-1" style="font-family:'Cinzel',serif; text-shadow:0 0 20px rgba(234,179,8,.5)">10%+</div>
+          <div class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">Direct GP Capital Commitment</div>
+          <div class="text-xs text-slate-500">Managing Partners trade their own capital in the same pool</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION: Slide-by-Slide Guide ── -->
+    <section id="slide-guide" class="mb-6">
+      <div class="flex items-center space-x-2 mb-5">
+        <span class="text-2xl">🎙️</span>
+        <h2 class="text-lg font-extrabold text-gold-400" style="font-family:'Cinzel',serif">Slide-by-Slide Master Speech Track</h2>
+      </div>
+      <div class="space-y-4">
+
+        <!-- Slide 1 -->
+        <div class="slide-card glass rounded-2xl p-5">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex items-center space-x-3">
+              <span class="w-8 h-8 rounded-xl bg-brand-500/20 border border-brand-500/30 text-brand-400 text-xs font-bold flex items-center justify-center">01</span>
+              <div>
+                <div class="font-bold text-white text-sm">Executive Overview &amp; Cover</div>
+                <div class="text-xs text-slate-500 mt-0.5">⏱ 90 seconds · Tone: Confident, Direct, Professional</div>
+              </div>
+            </div>
+          </div>
+          <div class="text-xs text-slate-400 mb-2 font-mono uppercase tracking-wide">Visual Focus: Genesis Syndicate Pool · $10k–$100k Tiers · 38.5% Net Target · 2.0% Max Risk</div>
+          <div class="bg-navy-900/60 rounded-xl p-4 border-l-2 border-brand-500 text-sm text-slate-300 leading-relaxed italic">
+            "Good morning/afternoon. Thank you for connecting with us today. I'm pleased to introduce Ascendia Investments Co and our Genesis Syndicate Pool.<br><br>
+            At Ascendia, our mission is simple: We bring systematic hedge-fund-level chart execution and strict mathematical risk parameters to digital asset markets.<br><br>
+            We have structured our pool with accessible entry tiers—starting from $10,000, $20,000, $30,000, $40,000, $50,000, up to $100,000+ for anchor VIP partners. Our partners have direct skin in the game with 10%+ personal capital alongside all syndicate members.<br><br>
+            Over the next 15 minutes, I'll walk you through our operating creed, our 2% risk rule, our trade execution setup, and how you can join our collective."
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide-card glass rounded-2xl p-5">
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="w-8 h-8 rounded-xl bg-gold-500/15 border border-gold-500/25 text-gold-400 text-xs font-bold flex items-center justify-center">02</span>
+            <div>
+              <div class="font-bold text-white text-sm">The Ascendia Manifesto &amp; Operating Creed</div>
+              <div class="text-xs text-slate-500 mt-0.5">⏱ 2 minutes · Tone: Raw Conviction, Cultural Contrast, Gravity</div>
+            </div>
+          </div>
+          <div class="bg-navy-900/60 rounded-xl p-4 border-l-2 border-gold-500 text-sm text-slate-300 leading-relaxed italic">
+            "Before we discuss numbers, it's essential to understand who we are and why we built Ascendia.<br><br>
+            The crypto market is a chaotic ocean of noise, FOMO, and wrecked accounts. The majority drown because they treat it like a casino—chasing green candles and panic-selling red ones. Ascendia was built for the minority who are ready to treat this like a serious profession.<br><br>
+            Our team operates by three foundational creeds: We Are Chartists, Not Gamblers. Capital Preservation First. Clarity Over Chaos.<br><br>
+            As we say: <strong class='not-italic text-gold-400'>We are not here to get rich quick. We are here to get rich for sure.</strong>"
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide-card glass rounded-2xl p-5">
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/25 text-emerald-400 text-xs font-bold flex items-center justify-center">03</span>
+            <div>
+              <div class="font-bold text-white text-sm">The Opportunity &amp; Market Reality</div>
+              <div class="text-xs text-slate-500 mt-0.5">⏱ 2 minutes · Tone: Pragmatic, Problem-Solving</div>
+            </div>
+          </div>
+          <div class="bg-navy-900/60 rounded-xl p-4 border-l-2 border-emerald-500 text-sm text-slate-300 leading-relaxed italic">
+            "95% of individual traders fail because of emotional over-trading, bad position sizing, and lack of invalidation rules.<br><br>
+            When you join Ascendia, you bypass the churn. You get access to institutional-grade execution, 3.25 profit factor trade setups, and complete transparency without having to sit in front of 6 monitors all day.<br><br>
+            Whether you allocate $10,000 or $100,000, your capital is managed under the exact same disciplined risk framework."
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide-card glass rounded-2xl p-5">
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="w-8 h-8 rounded-xl bg-rose-500/15 border border-rose-500/25 text-rose-400 text-xs font-bold flex items-center justify-center">04</span>
+            <div>
+              <div class="font-bold text-white text-sm">Systematic Investment Philosophy &amp; The 2% Rule</div>
+              <div class="text-xs text-slate-500 mt-0.5">⏱ 2 minutes · Tone: Methodical, Mathematical</div>
+            </div>
+          </div>
+          <div class="bg-navy-900/60 rounded-xl p-4 border-l-2 border-rose-500 text-sm text-slate-300 leading-relaxed italic">
+            "Our edge rests on mathematical symmetry. Every trade we enter has a minimum 1 to 3.5 Risk-to-Reward ratio.<br><br>
+            Most importantly, we cap our risk at a strict maximum of 2.0% per trade. If a setup invalidates, our hard stop triggers immediately. This ensures that even in severe market choppiness, your core principal is never threatened."
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide-card glass rounded-2xl p-5">
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="w-8 h-8 rounded-xl bg-purple-500/15 border border-purple-500/25 text-purple-400 text-xs font-bold flex items-center justify-center">05</span>
+            <div>
+              <div class="font-bold text-white text-sm">Pool Strategy &amp; Asset Allocation</div>
+              <div class="text-xs text-slate-500 mt-0.5">⏱ 2 minutes · Tone: Balanced, Strategic</div>
+            </div>
+          </div>
+          <div class="bg-navy-900/60 rounded-xl p-4 border-l-2 border-purple-500 text-sm text-slate-300 leading-relaxed italic">
+            "We construct the pool with a balanced approach:<br><br>
+            50% is allocated to Macro Trend Momentum on major ecosystem leaders.<br>
+            25% targets high-conviction breakout setups on high-volume expansion assets.<br>
+            25% remains in stable yield reserves earning 8% to 12% baseline yield while we wait for high-probability setups.<br><br>
+            You can choose to receive your profit distributions bimonthly or auto-compound for maximum growth."
+          </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="slide-card glass rounded-2xl p-5">
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/25 text-amber-400 text-xs font-bold flex items-center justify-center">06</span>
+            <div>
+              <div class="font-bold text-white text-sm">Proven Performance &amp; Alpha</div>
+              <div class="text-xs text-slate-500 mt-0.5">⏱ 2 minutes · Tone: Data-Driven, Realistic</div>
+            </div>
+          </div>
+          <div class="bg-navy-900/60 rounded-xl p-4 border-l-2 border-amber-500 text-sm text-slate-300 leading-relaxed italic">
+            "Our numbers reflect our discipline: a 64% win rate with a 3.25 profit factor, and a historical max drawdown capped at only -7.8%.<br><br>
+            On a $10,000 allocation, a 38.5% net target compounds to ~$19,180 over 24 months. On a $50,000 allocation, it projects to ~$95,900. On a $100,000 VIP tier, it projects to ~$191,800."
+          </div>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="slide-card glass rounded-2xl p-5">
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="w-8 h-8 rounded-xl bg-cyan-500/15 border border-cyan-500/25 text-cyan-400 text-xs font-bold flex items-center justify-center">07</span>
+            <div>
+              <div class="font-bold text-white text-sm">Technical Sourcing Funnel (Horizon Engine™)</div>
+              <div class="text-xs text-slate-500 mt-0.5">⏱ 1.5 minutes · Tone: Analytical</div>
+            </div>
+          </div>
+          <div class="bg-navy-900/60 rounded-xl p-4 border-l-2 border-cyan-500 text-sm text-slate-300 leading-relaxed italic">
+            "Our Horizon Engine™ scans over 500 digital assets daily. We filter down to the top 40 with confirmed structure, verify the 2% risk parameters on 12, and only pull the trigger on the top 3 to 5 cleanest setups.<br><br>
+            Remember Creed #1: If there is no setup, there is no trade."
+          </div>
+        </div>
+
+        <!-- Slide 8 -->
+        <div class="slide-card glass rounded-2xl p-5">
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="w-8 h-8 rounded-xl bg-lime-500/15 border border-lime-500/25 text-lime-400 text-xs font-bold flex items-center justify-center">08</span>
+            <div>
+              <div class="font-bold text-white text-sm">Case Studies &amp; Real Trade Setups</div>
+              <div class="text-xs text-slate-500 mt-0.5">⏱ 2 minutes · Tone: Proof-Driven, Concrete</div>
+            </div>
+          </div>
+          <div class="bg-navy-900/60 rounded-xl p-4 border-l-2 border-lime-500 text-sm text-slate-300 leading-relaxed italic">
+            "Here are recent examples: A 12-week descending channel breakout resulting in a 7.4R return (+13.3% net pool gain), and a 4-day liquidity sweep reversal resulting in 4.2R (+8.4% pool gain).<br><br>
+            Every trade has clear entry, stop, and take-profit targets logged transparently."
+          </div>
+        </div>
+
+        <!-- Slide 9 -->
+        <div class="slide-card glass rounded-2xl p-5">
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="w-8 h-8 rounded-xl bg-sky-500/15 border border-sky-500/25 text-sky-400 text-xs font-bold flex items-center justify-center">09</span>
+            <div>
+              <div class="font-bold text-white text-sm">Risk Management &amp; Custody</div>
+              <div class="text-xs text-slate-500 mt-0.5">⏱ 1.5 minutes · Tone: Reassuring, Secure</div>
+            </div>
+          </div>
+          <div class="bg-navy-900/60 rounded-xl p-4 border-l-2 border-sky-500 text-sm text-slate-300 leading-relaxed italic">
+            "Your security is our priority. Reserve funds are secured via institutional multi-signature custody. Hard stop-loss orders are submitted automatically upon entry, and members receive verified monthly profit statements."
+          </div>
+        </div>
+
+        <!-- Slide 10 -->
+        <div class="slide-card glass rounded-2xl p-5">
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="w-8 h-8 rounded-xl bg-indigo-500/15 border border-indigo-500/25 text-indigo-400 text-xs font-bold flex items-center justify-center">10</span>
+            <div>
+              <div class="font-bold text-white text-sm">Investment Tiers &amp; Syndicate Structure</div>
+              <div class="text-xs text-slate-500 mt-0.5">⏱ 2.5 minutes · Tone: Engaging, Value-Oriented</div>
+            </div>
+          </div>
+          <div class="bg-navy-900/60 rounded-xl p-4 border-l-2 border-indigo-500 text-sm text-slate-300 leading-relaxed italic">
+            "Here is how you can participate:<br><br>
+            Tiers start at <strong class='not-italic text-white'>$10,000 (Tier 1)</strong>, <strong class='not-italic text-white'>$20,000 (Tier 2)</strong>, <strong class='not-italic text-white'>$30,000 (Tier 3)</strong>, and <strong class='not-italic text-white'>$40,000 (Tier 4)</strong> on our standard 80/20 profit split with zero hidden fees.<br><br>
+            <strong class='not-italic text-gold-400'>Tier 5 ($50,000)</strong> includes monthly strategy syncs with our CIO, Cody Paulson.<br><br>
+            <strong class='not-italic text-gold-400'>Tier 6 ($100,000+)</strong> is our Anchor VIP tier, featuring an 80/20 profit split, direct VIP priority access, and custom allocation terms.<br><br>
+            We operate on a standard High-Water Mark—performance fees are only earned when we generate new net profit for you."
+          </div>
+        </div>
+
+        <!-- Slide 11 -->
+        <div class="slide-card glass rounded-2xl p-5">
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="w-8 h-8 rounded-xl bg-pink-500/15 border border-pink-500/25 text-pink-400 text-xs font-bold flex items-center justify-center">11</span>
+            <div>
+              <div class="font-bold text-white text-sm">Leadership &amp; Team</div>
+              <div class="text-xs text-slate-500 mt-0.5">⏱ 1.5 minutes · Tone: Experienced, Accessible</div>
+            </div>
+          </div>
+          <div class="bg-navy-900/60 rounded-xl p-4 border-l-2 border-pink-500 text-sm text-slate-300 leading-relaxed italic">
+            "Our leadership brings true pedigree: Cody Paulson leads trading strategy and execution, Elena Vance oversees our quant screening algorithms, and I personally handle member allocations, onboarding, and monthly distributions."
+          </div>
+        </div>
+
+        <!-- Slide 12 -->
+        <div class="slide-card glass rounded-2xl p-5">
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="w-8 h-8 rounded-xl bg-orange-500/15 border border-orange-500/25 text-orange-400 text-xs font-bold flex items-center justify-center">12</span>
+            <div>
+              <div class="font-bold text-white text-sm">Roadmap &amp; Execution Timeline</div>
+              <div class="text-xs text-slate-500 mt-0.5">⏱ 1 minute · Tone: Momentum-Driven</div>
+            </div>
+          </div>
+          <div class="bg-navy-900/60 rounded-xl p-4 border-l-2 border-orange-500 text-sm text-slate-300 leading-relaxed italic">
+            "Genesis Pool onboarding is open now. Once your tier is confirmed, your capital is deployed immediately into our active setups and stable yield buffer."
+          </div>
+        </div>
+
+        <!-- Slide 13 -->
+        <div class="slide-card glass rounded-2xl p-5 gold-glow">
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="w-8 h-8 rounded-xl bg-gold-500/20 border border-gold-500/40 text-gold-400 text-xs font-bold flex items-center justify-center">13</span>
+            <div>
+              <div class="font-bold text-white text-sm">Call to Action &amp; How to Join</div>
+              <div class="text-xs text-slate-500 mt-0.5">⏱ 1 minute · Tone: Welcoming, Actionable</div>
+            </div>
+          </div>
+          <div class="bg-navy-900/60 rounded-xl p-4 border-l-2 border-gold-500 text-sm text-slate-300 leading-relaxed italic">
+            "If you are ready to stop gambling and operate with a serious community, select your preferred investment tier ($10k to $100k).<br><br>
+            I will send over our simple digital membership agreement, wire/deposit instructions, and your private dashboard access.<br><br>
+            <strong class='not-italic text-gold-400'>Welcome to Ascendia.</strong>"
+          </div>
+        </div>
+
+      </div><!-- /slides -->
+    </section>
+
+    <!-- ── SECTION: Objection Handling ── -->
+    <section id="objections" class="glass rounded-3xl p-6 sm:p-8 mb-6">
+      <div class="flex items-center space-x-2 mb-6">
+        <span class="text-2xl">🛡️</span>
+        <h2 class="text-lg font-extrabold text-gold-400" style="font-family:'Cinzel',serif">Investor FAQ &amp; Objection Handling Matrix</h2>
+      </div>
+      <div class="space-y-4">
+
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-1">Q — "Can I start at $10k or $20k and add more later?"</div>
+          <div class="text-sm text-slate-300 leading-relaxed">Absolutely. Many partners start with $10k or $20k to experience our execution and monthly distributions firsthand, then scale up to $50k or $100k as capacity allows.</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-1">Q — "How does the 2% risk rule protect against crypto crashes?"</div>
+          <div class="text-sm text-slate-300 leading-relaxed">Because each trade's maximum stop-out loss is capped at 2% of total equity, even an extreme flash-crash event only impacts a single trade's defined risk. We never hold un-hedged bags into multi-month drawdowns.</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-1">Q — "How do payouts work?"</div>
+          <div class="text-sm text-slate-300 leading-relaxed">You can choose automatic bimonthly payouts sent directly to your registered wallet/bank, or enable auto-compounding to maximize exponential growth.</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-1">Q — "What are the fees?"</div>
+          <div class="text-sm text-slate-300 leading-relaxed">We operate on a 2.0% annual management fee and a transparent 80/20 profit split across all tiers with a strict High-Water Mark. If we don't generate net profit, we earn zero performance fee.</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-1">Q — "How fast can I get onboarded?"</div>
+          <div class="text-sm text-slate-300 leading-relaxed">Digital agreement execution and deposit processing is completed within 24 hours.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SECTION: Onboarding Email Template ── -->
+    <section id="email-template" class="glass rounded-3xl p-6 sm:p-8 mb-6">
+      <div class="flex items-center justify-between mb-5">
+        <div class="flex items-center space-x-2">
+          <span class="text-2xl">📧</span>
+          <h2 class="text-lg font-extrabold text-gold-400" style="font-family:'Cinzel',serif">Member Onboarding Email Template</h2>
+        </div>
+        <button onclick="copyEmail()" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-colors border border-white/10">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          <span id="copyLabel">Copy</span>
+        </button>
+      </div>
+
+      <div class="bg-navy-900/70 rounded-2xl p-5 border border-white/8 font-mono text-xs text-slate-300 leading-relaxed whitespace-pre-wrap" id="emailBody">Subject: Welcome to Ascendia Investments Co — Genesis Allocation Confirmation ($10k–$100k)
+
+Dear [First Name],
+
+Thank you for speaking with us today. We are excited to welcome you to the Ascendia Genesis Syndicate Pool.
+
+As we shared in our creed: "We are not here to get rich quick. We are here to get rich for sure."
+
+Your Selected Allocation Summary:
+  Investment Tier:   $[10,000 / 20,000 / 30,000 / 40,000 / 50,000 / 100,000]
+  Profit Share:      80% Member / 20% GP (Strict High-Water Mark)
+  Target Net ROI:    38.5% Annualized Target
+  Risk Floor:        Strict 2.0% Maximum Risk Rule per Setup
+
+Next Steps:
+  1. Complete the digital Syndicate Agreement: [Insert Link]
+  2. Complete deposit via Wire / Stablecoin Transfer: [Instructions]
+  3. Join the Private Member Telegram & Dashboard: [Access Link]
+
+If you have any questions, feel free to call me directly.
+
+Warm regards,
+
+Xino Kai
+Head of Investor Relations & Member Success
+Ascendia Investments Co
+📞 +1 (212) 890-4500 | 📧 ir@ascendiainvestments.com</div>
+    </section>
+
+    <!-- Footer -->
+    <div class="text-center py-6 text-xs text-slate-600 border-t border-white/5">
+      <span class="text-rose-500 font-bold">⚠ CONFIDENTIAL</span> — Ascendia Investments Co · Internal IR Use Only · Do not distribute
+    </div>
+
+  </div><!-- /container -->
+
+  <script>
+    function copyEmail() {
+      const text = document.getElementById('emailBody').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const lbl = document.getElementById('copyLabel');
+        lbl.textContent = 'Copied!';
+        setTimeout(() => lbl.textContent = 'Copy', 2000);
+      });
+    }
+  </script>
+</body>
+</html>

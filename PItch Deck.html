@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ascendia Investments Co — Investor Pitch Deck & Syndicate Overview</title>
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <!-- Suppress Tailwind CDN production notice -->
+  <script>
+    (function() {
+      const origWarn = console.warn;
+      console.warn = function(...args) {
+        if (typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com should not be used in production')) return;
+        origWarn.apply(console, args);
+      };
+    })();
+  </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae0fd',
+              300: '#7cc7fb',
+              400: '#36abf7',
+              500: '#0c8fe9',
+              600: '#0270c7',
+              700: '#0359a1',
+              800: '#074b85',
+              900: '#0c3f6e',
+              950: '#082849',
+            },
+            gold: {
+              300: '#fde047',
+              400: '#facc15',
+              500: '#eab308',
+              600: '#ca8a04',
+            },
+            navy: {
+              800: '#0d1527',
+              850: '#090f1d',
+              900: '#060a15',
+              950: '#03050a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            serif: ['Cinzel', 'Playfair Display', 'Georgia', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #060a15;
+      color: #f1f5f9;
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: scale(0.985);
+      height: 100vh;
+      width: 100vw;
+      padding-bottom: 5.5rem !important; /* Prevents floating control bar from blocking slide content */
+      box-sizing: border-box;
+    }
+
+    .slide-scrollable {
+      height: 100vh;
+      width: 100vw;
+      overflow-y: auto;
+      padding-bottom: 7.5rem !important;
+      box-sizing: border-box;
+    }
+
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .glass-panel {
+      background: rgba(13, 21, 39, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card {
+      background: rgba(18, 29, 54, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(234, 179, 8, 0.35);
+      box-shadow: 0 10px 30px -10px rgba(0, 112, 199, 0.2);
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fef08a 0%, #eab308 50%, #ca8a04 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .blue-gradient-text {
+      background: linear-gradient(135deg, #93c5fd 0%, #3b82f6 50%, #1d4ed8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glow-glow {
+      box-shadow: 0 0 50px -10px rgba(12, 143, 233, 0.18);
+    }
+
+    /* Print styling for PDF export */
+    @media print {
+      body {
+        overflow: visible !important;
+        background: #060a15 !important;
+        color: #ffffff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .slide {
+        display: flex !important;
+        opacity: 1 !important;
+        transform: none !important;
+        height: 100vh !important;
+        width: 100vw !important;
+        page-break-after: always !important;
+        break-after: page !important;
+      }
+      #calcModal, #overviewModal {
+        display: none !important;
+      }
+    }
+
+    /* Custom scrollbar for speaker notes */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(13, 21, 39, 0.5);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(234, 179, 8, 0.5);
+    }
+  </style>
+</head>
+<body class="bg-navy-900 text-slate-100 antialiased select-none">
+
+  <!-- Background decorative glows -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand-600/10 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 -right-40 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 left-1/3 w-[600px] h-96 bg-brand-900/15 rounded-full blur-3xl"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff04_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+  </div>
+
+  <!-- MAIN PRESENTATION SLIDES WRAPPER -->
+  <main id="presentation" class="relative z-10 w-full h-screen overflow-visible flex items-center justify-center">
+
+    <!-- ========================================== -->
+    <!-- SLIDE 1: COVER / HERO -->
+    <!-- ========================================== -->
+    <section class="slide active flex-col justify-between p-8 md:p-14" data-slide="1" data-title="Executive Overview">
+      <!-- Header -->
+      <div class="flex items-center justify-between w-full">
+        <div class="flex items-center space-x-3.5">
+          <img src="logo.jpg" alt="Ascendia Logo" class="w-12 h-12 rounded-xl object-cover border border-gold-500/40 shadow-lg shadow-gold-500/10">
+          <div>
+            <h1 class="text-lg font-bold tracking-wider uppercase font-serif text-slate-200">Ascendia Investments Co</h1>
+            <p class="text-xs text-slate-400 tracking-widest uppercase">Systematic Digital Asset Syndicate</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="px-3 py-1 text-xs font-semibold tracking-wider text-gold-400 uppercase bg-gold-500/10 border border-gold-500/30 rounded-full">Genesis Syndicate Pool</span>
+          <span class="px-3 py-1 text-xs font-medium text-slate-400 bg-slate-800/60 border border-slate-700/50 rounded-full">Tiers: $10k to $100k</span>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="max-w-4xl py-4">
+        <div class="flex items-center space-x-3 mb-5">
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-medium">
+            <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+            <span>Confidential Syndicate Investor Presentation</span>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row md:items-center gap-6 mb-4">
+          <img src="logo.jpg" alt="Ascendia Emblem" class="w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover border border-gold-500/40 shadow-2xl shadow-gold-500/20 shrink-0 hidden sm:block">
+          <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            Unlocking <span class="gold-gradient-text">Disciplined Alpha</span> in High-Velocity Markets
+          </h2>
+        </div>
+        <p class="text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-3xl">
+          Ascendia replaces emotional gambling with professional chart execution, strict 2% risk parameters, and asymmetric trend capture for serious capital allocators.
+        </p>
+
+        <!-- Fast Stats Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10">
+          <div class="glass-card p-4 rounded-xl border border-white/5">
+            <p class="text-xs uppercase tracking-wider text-slate-400">Target Net Annual</p>
+            <p class="text-2xl md:text-3xl font-extrabold text-gold-400 mt-1 font-serif">38.5%</p>
+            <p class="text-[11px] text-emerald-400 mt-0.5 font-medium">Alpha vs Buy & Hold</p>
+          </div>
+          <div class="glass-card p-4 rounded-xl border border-white/5">
+            <p class="text-xs uppercase tracking-wider text-slate-400">Entry Tiers</p>
+            <p class="text-2xl md:text-3xl font-extrabold text-white mt-1 font-serif">$10k–$100k</p>
+            <p class="text-[11px] text-slate-400 mt-0.5">Flexible Sizing</p>
+          </div>
+          <div class="glass-card p-4 rounded-xl border border-white/5">
+            <p class="text-xs uppercase tracking-wider text-slate-400">GP Commitment</p>
+            <p class="text-2xl md:text-3xl font-extrabold text-brand-400 mt-1 font-serif">10%+</p>
+            <p class="text-[11px] text-brand-300 mt-0.5">Direct Skin in Game</p>
+          </div>
+          <div class="glass-card p-4 rounded-xl border border-white/5">
+            <p class="text-xs uppercase tracking-wider text-slate-400">Max Risk / Trade</p>
+            <p class="text-2xl md:text-3xl font-extrabold text-white mt-1 font-serif">2.0%</p>
+            <p class="text-[11px] text-emerald-400 mt-0.5">Strict Downside Floor</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Info -->
+      <div class="flex flex-wrap items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-4">
+        <div class="flex items-center space-x-6">
+          <span>🏛️ Ascendia Syndicate Pool</span>
+          <span>🔒 Tiered Capital Allocations</span>
+          <span>⚡ Direct Bimonthly Distributions</span>
+        </div>
+        <div class="flex items-center space-x-2 text-slate-400">
+          <span>Use keys <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300">←</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300">→</kbd> to navigate</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 2: THE ASCENDIA MANIFESTO & CREED -->
+    <!-- ========================================== -->
+    <section class="slide flex-col justify-between p-8 md:p-14" data-slide="2" data-title="The Ascendia Manifesto & Creed">
+      <div class="flex items-center justify-between w-full">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs font-bold text-gold-400 uppercase tracking-widest">02 // Core DNA</span>
+        </div>
+        <img src="logo.jpg" alt="Ascendia" class="w-8 h-8 rounded-lg object-cover border border-gold-500/30 opacity-80 hover:opacity-100 transition-opacity">
+      </div>
+
+      <div class="max-w-6xl w-full my-auto">
+        <!-- Manifesto Header -->
+        <div class="mb-6">
+          <div class="inline-block px-3 py-1 text-xs font-bold tracking-widest uppercase text-gold-400 bg-gold-500/10 border border-gold-500/30 rounded-full mb-2">
+            The Ascendia Manifesto
+          </div>
+          <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-3">
+            Rise Above <span class="gold-gradient-text">the Noise</span>.
+          </h2>
+          <div class="p-4 rounded-xl glass-panel border border-white/10 text-xs md:text-sm text-slate-300 space-y-2 leading-relaxed max-w-4xl">
+            <p>
+              The crypto market is a chaotic ocean of noise, FOMO, and wrecked accounts. The majority drown because they treat it like a casino—chasing green candles and panic-selling red ones.
+            </p>
+            <p class="font-semibold text-white">
+              Ascendia was built for the minority who are ready to treat this like a profession.
+            </p>
+            <p class="text-slate-400 text-xs italic">
+              Ascendia means "the state of rising." But we do not rise through luck or hype. We ascend through structure, discipline, and an unwavering respect for the market.
+            </p>
+          </div>
+        </div>
+
+        <!-- The 3 Creeds Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+          <!-- Creed 1 -->
+          <div class="glass-card p-5 rounded-2xl border-t-2 border-t-brand-400 relative">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-mono font-bold text-brand-400 uppercase tracking-wider">CREED 01</span>
+              <span class="text-lg">📈</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">We Are Chartists, Not Gamblers</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              We don't buy because an influencer tweeted a ticker. We buy because price action dictated an entry, and risk parameters confirmed the setup.
+            </p>
+            <div class="p-2 rounded bg-navy-900/80 border border-brand-500/20 text-[11px] font-bold text-brand-300 text-center">
+              "If there is no set up, there is no trade."
+            </div>
+          </div>
+
+          <!-- Creed 2 -->
+          <div class="glass-card p-5 rounded-2xl border-t-2 border-t-gold-400 relative">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-mono font-bold text-gold-400 uppercase tracking-wider">CREED 02</span>
+              <span class="text-lg">🛡️</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">Capital Preservation First. Profit Second.</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              In the high-velocity world, survival is the primary skill. We obsess over our downside protection so that our upside can take care of itself.
+            </p>
+            <div class="p-2 rounded bg-navy-900/80 border border-gold-500/20 text-[11px] font-bold text-gold-300 text-center">
+              "We follow the 2% rule religiously."
+            </div>
+          </div>
+
+          <!-- Creed 3 -->
+          <div class="glass-card p-5 rounded-2xl border-t-2 border-t-emerald-400 relative">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">CREED 03</span>
+              <span class="text-lg">🎯</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">Clarity Over Chaos</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              While others are drowning in hundreds of Telegram alerts, we focus on the few setups that matter. We filter the signal from the noise.
+            </p>
+            <div class="p-2 rounded bg-navy-900/80 border border-emerald-500/20 text-[11px] font-bold text-emerald-300 text-center">
+              "Cleanest breakouts & strongest trends."
+            </div>
+          </div>
+        </div>
+
+        <!-- Manifesto Closing Banner -->
+        <div class="p-4 rounded-xl bg-gradient-to-r from-navy-800 via-navy-850 to-navy-800 border border-gold-500/30 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <div>
+            <div class="text-sm md:text-base font-extrabold gold-gradient-text font-serif">
+              "We are not here to get rich quick. We are here to get rich for sure."
+            </div>
+            <div class="text-xs text-slate-400 mt-0.5">
+              Operating with a proven institutional system alongside a serious community.
+            </div>
+          </div>
+          <span class="px-3 py-1.5 rounded-lg bg-gold-500/10 border border-gold-500/40 text-gold-300 font-mono text-xs font-bold whitespace-nowrap">
+            Zero Churn · 100% Discipline
+          </span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-white/10 pt-4">
+        <span>The Ascendia Foundation & Operating Creed</span>
+        <span>Slide 02 of 13</span>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 3: THE MARKET REALITY & OPPORTUNITY -->
+    <!-- ========================================== -->
+    <section class="slide flex-col justify-between p-8 md:p-14" data-slide="3" data-title="The Opportunity">
+      <div class="flex items-center justify-between w-full">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs font-bold text-gold-400 uppercase tracking-widest">03 // The Opportunity</span>
+        </div>
+        <img src="logo.jpg" alt="Ascendia" class="w-8 h-8 rounded-lg object-cover border border-gold-500/30 opacity-80 hover:opacity-100 transition-opacity">
+      </div>
+
+      <div class="max-w-6xl w-full my-auto">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+          Why Most Fail & <span class="gold-gradient-text">How We Win</span>
+        </h2>
+        <p class="text-slate-300 text-base max-w-3xl mb-8">
+          95% of market participants churn their portfolios by over-trading, buying at market tops, and lacking position sizing rules. Ascendia applies systematic hedge fund discipline to individual pool allocations.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Problem/Solution 1 -->
+          <div class="glass-card p-6 rounded-2xl border-t-2 border-t-brand-400">
+            <div class="w-10 h-10 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center mb-4 font-bold text-lg">01</div>
+            <h3 class="text-lg font-bold text-white mb-2">The Retail Churn Trap</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-4">
+              Individual traders lose capital to emotional impulse entries and poor liquidity timing. Ascendia waits patiently for confirmed technical confluences.
+            </p>
+            <div class="bg-navy-900/60 p-3 rounded-lg border border-white/5 text-xs text-brand-300 font-semibold flex items-center justify-between">
+              <span>Ascendia Edge:</span>
+              <span class="text-white">Strict Setup Invalidation Rules</span>
+            </div>
+          </div>
+
+          <!-- Problem/Solution 2 -->
+          <div class="glass-card p-6 rounded-2xl border-t-2 border-t-gold-400">
+            <div class="w-10 h-10 rounded-lg bg-gold-500/20 text-gold-400 flex items-center justify-center mb-4 font-bold text-lg">02</div>
+            <h3 class="text-lg font-bold text-white mb-2">Asymmetric Trend Capture</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-4">
+              Crypto trends offer the highest risk-adjusted R-multiples in finance when managed correctly. We ride multi-week breakout trends with trailing profit protection.
+            </p>
+            <div class="bg-navy-900/60 p-3 rounded-lg border border-white/5 text-xs text-gold-300 font-semibold flex items-center justify-between">
+              <span>Avg Win/Loss Ratio:</span>
+              <span class="text-white">3.2 : 1 Profit Factor</span>
+            </div>
+          </div>
+
+          <!-- Problem/Solution 3 -->
+          <div class="glass-card p-6 rounded-2xl border-t-2 border-t-emerald-400">
+            <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4 font-bold text-lg">03</div>
+            <h3 class="text-lg font-bold text-white mb-2">Accessible Institutional Pool</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-4">
+              You don't need $5,000,000 to access institutional execution. Our pooled syndicate offers ticket sizes from $10,000 to $100,000 with complete transparency.
+            </p>
+            <div class="bg-navy-900/60 p-3 rounded-lg border border-white/5 text-xs text-emerald-300 font-semibold flex items-center justify-between">
+              <span>Entry Sizing:</span>
+              <span class="text-white">$10k, $20k, $30k, $50k, $100k</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-white/10 pt-4">
+        <span>Ascendia Market Opportunity Analysis</span>
+        <span>Slide 03 of 13</span>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 4: SYSTEMATIC INVESTMENT PHILOSOPHY -->
+    <!-- ========================================== -->
+    <section class="slide flex-col justify-between p-8 md:p-14" data-slide="4" data-title="Investment Philosophy">
+      <div class="flex items-center justify-between w-full">
+        <span class="text-xs font-bold text-gold-400 uppercase tracking-widest">04 // The Ascendia System</span>
+        <img src="logo.jpg" alt="Ascendia" class="w-8 h-8 rounded-lg object-cover border border-gold-500/30 opacity-80 hover:opacity-100 transition-opacity">
+      </div>
+
+      <div class="max-w-6xl w-full my-auto">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+          Engineered for <span class="gold-gradient-text">Consistent Execution</span>
+        </h2>
+        <p class="text-slate-300 text-base max-w-3xl mb-8">
+          We strip out emotion and replace it with systematic price action, mathematical risk management, and multi-timeframe confirmation.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
+          <div class="glass-card p-5 rounded-2xl relative overflow-hidden group">
+            <div class="text-brand-400 font-bold text-sm tracking-wider mb-2">PILLAR 1</div>
+            <h3 class="text-lg font-bold text-white mb-2">Price Action Sourcing</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              We trade key market structures, liquidity sweeps, and high-volume breakout consolidations on higher timeframes (4H / 1D).
+            </p>
+            <div class="text-[11px] font-semibold text-gold-400">No Noise · Pure Charts</div>
+          </div>
+
+          <div class="glass-card p-5 rounded-2xl relative overflow-hidden group">
+            <div class="text-brand-400 font-bold text-sm tracking-wider mb-2">PILLAR 2</div>
+            <h3 class="text-lg font-bold text-white mb-2">The 2% Rule</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Max 2% total pool risk per trade. Even if 5 consecutive trades hit invalidation, 90%+ of capital remains completely intact.
+            </p>
+            <div class="text-[11px] font-semibold text-emerald-400">Zero Account Blow-Ups</div>
+          </div>
+
+          <div class="glass-card p-5 rounded-2xl relative overflow-hidden group">
+            <div class="text-brand-400 font-bold text-sm tracking-wider mb-2">PILLAR 3</div>
+            <h3 class="text-lg font-bold text-white mb-2">Asymmetric R:R</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Every trade requires a minimum 1 : 3.5 Risk-to-Reward ratio. A 40% win rate generates substantial compound net profit.
+            </p>
+            <div class="text-[11px] font-semibold text-brand-300">Mathematical Edge</div>
+          </div>
+
+          <div class="glass-card p-5 rounded-2xl relative overflow-hidden group">
+            <div class="text-brand-400 font-bold text-sm tracking-wider mb-2">PILLAR 4</div>
+            <h3 class="text-lg font-bold text-white mb-2">Skin In The Game</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Our Managing Partners allocate direct personal capital into the exact same pool alongside all investors with tiered profit splits.
+            </p>
+            <div class="text-[11px] font-semibold text-gold-400">100% Aligned Incentives</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-white/10 pt-4">
+        <span>Ascendia Technical Underwriting Standard</span>
+        <span>Slide 04 of 13</span>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 5: POOL STRATEGY & ASSET ALLOCATION -->
+    <!-- ========================================== -->
+    <section class="slide flex-col justify-between p-8 md:p-14" data-slide="5" data-title="Portfolio Allocation Strategy">
+      <div class="flex items-center justify-between w-full">
+        <span class="text-xs font-bold text-gold-400 uppercase tracking-widest">05 // Pool Strategy</span>
+        <img src="logo.jpg" alt="Ascendia" class="w-8 h-8 rounded-lg object-cover border border-gold-500/30 opacity-80 hover:opacity-100 transition-opacity">
+      </div>
+
+      <div class="max-w-6xl w-full my-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <!-- Left Col -->
+          <div class="lg:col-span-5">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+              Strategic <span class="gold-gradient-text">Capital Sizing</span>
+            </h2>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+              Our pool allocates capital across high-conviction breakout setups, macro trend-following, and secured yield reserves to maintain steady monthly momentum.
+            </p>
+
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-3 rounded-xl bg-navy-800/80 border border-brand-500/30">
+                <div class="flex items-center space-x-3">
+                  <div class="w-4 h-4 rounded bg-brand-500"></div>
+                  <div>
+                    <div class="text-sm font-bold text-white">Macro Trend Momentum</div>
+                    <div class="text-xs text-slate-400">Core Layer-1s / Majors (BTC/SOL/ETH)</div>
+                  </div>
+                </div>
+                <span class="text-base font-extrabold text-brand-400">50%</span>
+              </div>
+
+              <div class="flex items-center justify-between p-3 rounded-xl bg-navy-800/80 border border-gold-500/30">
+                <div class="flex items-center space-x-3">
+                  <div class="w-4 h-4 rounded bg-gold-400"></div>
+                  <div>
+                    <div class="text-sm font-bold text-white">High-Conviction Breakouts</div>
+                    <div class="text-xs text-slate-400">High-momentum ecosystem leaders</div>
+                  </div>
+                </div>
+                <span class="text-base font-extrabold text-gold-400">25%</span>
+              </div>
+
+              <div class="flex items-center justify-between p-3 rounded-xl bg-navy-800/80 border border-emerald-500/30">
+                <div class="flex items-center space-x-3">
+                  <div class="w-4 h-4 rounded bg-emerald-400"></div>
+                  <div>
+                    <div class="text-sm font-bold text-white">Stables & Secured Yield Buffer</div>
+                    <div class="text-xs text-slate-400">Cash reserve + 8-12% staking yield</div>
+                  </div>
+                </div>
+                <span class="text-base font-extrabold text-emerald-400">25%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Col: Visual Representation -->
+          <div class="lg:col-span-7">
+            <div class="glass-card p-6 rounded-2xl border border-white/10">
+              <div class="flex items-center justify-between mb-4">
+                <h4 class="text-sm font-bold uppercase tracking-wider text-slate-300">Active Risk Management Matrix</h4>
+                <span class="text-xs text-slate-400">Genesis Syndicate Pool</span>
+              </div>
+
+              <!-- SVG Donut Chart and Metrics -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+                <div class="flex justify-center relative">
+                  <svg class="w-48 h-48 transform -rotate-90" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#131d33" stroke-width="14"></circle>
+                    <!-- 50% = 119.38 -->
+                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#0c8fe9" stroke-width="14" stroke-dasharray="119.38 238.76" stroke-dashoffset="0"></circle>
+                    <!-- 25% = 59.69 -->
+                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#eab308" stroke-width="14" stroke-dasharray="59.69 238.76" stroke-dashoffset="-119.38"></circle>
+                    <!-- 25% = 59.69 -->
+                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#10b981" stroke-width="14" stroke-dasharray="59.69 238.76" stroke-dashoffset="-179.07"></circle>
+                  </svg>
+                  <div class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
+                    <span class="text-xl font-extrabold text-white font-serif">Ascendia</span>
+                    <span class="text-[10px] uppercase text-slate-400">Pool Portfolio</span>
+                  </div>
+                </div>
+
+                <div class="space-y-3 text-xs">
+                  <div class="p-2.5 rounded-lg bg-navy-900/80 border border-white/5">
+                    <div class="text-slate-400">Investment Tiers:</div>
+                    <div class="text-sm font-bold text-white mt-0.5">$10k, $20k, $30k, $40k, $50k, $100k</div>
+                  </div>
+                  <div class="p-2.5 rounded-lg bg-navy-900/80 border border-white/5">
+                    <div class="text-slate-400">Distribution Cadence:</div>
+                    <div class="text-sm font-bold text-white mt-0.5">Bimonthly or Compounding Option</div>
+                  </div>
+                  <div class="p-2.5 rounded-lg bg-navy-900/80 border border-white/5">
+                    <div class="text-slate-400">Liquidity Window:</div>
+                    <div class="text-sm font-bold text-white mt-0.5">Quarterly Redemption Available</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bar Comparison Footer -->
+              <div class="mt-5 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-slate-300">
+                <span class="flex items-center"><span class="w-2 h-2 rounded-full bg-emerald-400 mr-2"></span> Dedicated Risk Manager Oversight</span>
+                <span class="font-bold text-gold-400">Zero Over-Leverage Policy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-white/10 pt-4">
+        <span>Portfolio Construction Guidelines</span>
+        <span>Slide 05 of 13</span>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 6: PERFORMANCE & TRACK RECORD -->
+    <!-- ========================================== -->
+    <section class="slide flex-col justify-between p-8 md:p-14" data-slide="6" data-title="Track Record & Alpha">
+      <div class="flex items-center justify-between w-full">
+        <span class="text-xs font-bold text-gold-400 uppercase tracking-widest">06 // Performance Metrics</span>
+        <img src="logo.jpg" alt="Ascendia" class="w-8 h-8 rounded-lg object-cover border border-gold-500/30 opacity-80 hover:opacity-100 transition-opacity">
+      </div>
+
+      <div class="max-w-6xl w-full my-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+          <div>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-2">
+              Demonstrated <span class="gold-gradient-text">Systematic Edge</span>
+            </h2>
+            <p class="text-slate-300 text-sm max-w-2xl">
+              Consistent returns generated by focusing only on verified A+ setups with favorable risk-to-reward ratios and cutting losing trades immediately.
+            </p>
+          </div>
+          <div class="mt-4 md:mt-0 text-right">
+            <span class="text-3xl font-extrabold text-emerald-400 font-serif">+38.5%</span>
+            <p class="text-xs text-slate-400">Target Net Annualized ROI</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Metric 1 -->
+          <div class="glass-card p-6 rounded-2xl relative">
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+              <span>WIN / LOSS METRICS</span>
+              <span class="text-emerald-400 font-bold">High R:R Profile</span>
+            </div>
+            <div class="text-4xl font-extrabold text-white font-serif mb-1">3.25 : 1</div>
+            <div class="text-xs text-slate-300 mb-4">Average Profit Factor across Trades</div>
+            <div class="w-full bg-navy-900 h-2 rounded-full overflow-hidden mb-3">
+              <div class="bg-gradient-to-r from-brand-500 to-gold-400 h-full rounded-full" style="width: 85%"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-slate-400">
+              <span>Win Rate: 64%</span>
+              <span class="text-white font-bold">Avg Win: +7.2% | Avg Loss: -1.8%</span>
+            </div>
+          </div>
+
+          <!-- Metric 2 -->
+          <div class="glass-card p-6 rounded-2xl relative">
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+              <span>DOWNSIDE RESILIENCE</span>
+              <span class="text-brand-400 font-bold">The 2% Rule</span>
+            </div>
+            <div class="text-4xl font-extrabold text-white font-serif mb-1">-7.8%</div>
+            <div class="text-xs text-slate-300 mb-4">Historical Maximum Peak-to-Trough Drawdown</div>
+            <div class="w-full bg-navy-900 h-2 rounded-full overflow-hidden mb-3">
+              <div class="bg-gradient-to-r from-brand-500 to-emerald-400 h-full rounded-full" style="width: 90%"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-slate-400">
+              <span>Crypto Market Drawdown: -65%+</span>
+              <span class="text-emerald-400 font-bold">Downside Capped</span>
+            </div>
+          </div>
+
+          <!-- Metric 3 -->
+          <div class="glass-card p-6 rounded-2xl relative">
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+              <span>SHARPE & EFFICIENCY</span>
+              <span class="text-gold-400 font-bold">Risk-Adjusted Alpha</span>
+            </div>
+            <div class="text-4xl font-extrabold text-white font-serif mb-1">2.42</div>
+            <div class="text-xs text-slate-300 mb-4">Systematic Sharpe Ratio</div>
+            <div class="w-full bg-navy-900 h-2 rounded-full overflow-hidden mb-3">
+              <div class="bg-gradient-to-r from-gold-500 to-brand-400 h-full rounded-full" style="width: 88%"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-slate-400">
+              <span>Signal Quality: High</span>
+              <span class="text-white font-bold">Zero Forced Trades</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tier Profit Simulation Table Preview -->
+        <div class="mt-6 glass-panel rounded-xl p-4 overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="border-b border-white/10 text-slate-400 uppercase tracking-wider">
+                <th class="pb-2 font-medium">Investment Tier</th>
+                <th class="pb-2 font-medium text-right">Initial Capital</th>
+                <th class="pb-2 font-medium text-right">Est. 12-Mo Net Payout</th>
+                <th class="pb-2 font-medium text-right">Est. 24-Mo Value (Compounded)</th>
+                <th class="pb-2 font-medium text-right text-emerald-400">Net Profit Split</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/5 text-slate-200">
+              <tr>
+                <td class="py-2.5 font-bold text-white">Core Member Tier</td>
+                <td class="py-2.5 text-right font-mono font-bold text-gold-400">$10,000</td>
+                <td class="py-2.5 text-right text-slate-300">$13,850</td>
+                <td class="py-2.5 text-right text-slate-300">$19,180</td>
+                <td class="py-2.5 text-right font-bold text-emerald-400">80% Investor / 20% GP</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 font-bold text-white">Select Partner Tier</td>
+                <td class="py-2.5 text-right font-mono font-bold text-gold-400">$50,000</td>
+                <td class="py-2.5 text-right text-slate-300">$69,250</td>
+                <td class="py-2.5 text-right text-slate-300">$95,900</td>
+                <td class="py-2.5 text-right font-bold text-emerald-400">80% Investor / 20% GP</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 font-bold text-white">Anchor VIP Tier</td>
+                <td class="py-2.5 text-right font-mono font-bold text-gold-400">$100,000</td>
+                <td class="py-2.5 text-right text-slate-300">$138,500</td>
+                <td class="py-2.5 text-right text-slate-300">$191,800</td>
+                <td class="py-2.5 text-right font-bold text-emerald-400">80% Investor / 20% GP</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-white/10 pt-4">
+        <span>Historical Strategy Telemetry · Full Logs in Member Data Room</span>
+        <span>Slide 06 of 13</span>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 7: DEAL SOURCING & HORIZON ENGINE -->
+    <!-- ========================================== -->
+    <section class="slide flex-col justify-between p-8 md:p-14" data-slide="7" data-title="The Sourcing Funnel">
+      <div class="flex items-center justify-between w-full">
+        <span class="text-xs font-bold text-gold-400 uppercase tracking-widest">07 // Technical Sourcing</span>
+        <img src="logo.jpg" alt="Ascendia" class="w-8 h-8 rounded-lg object-cover border border-gold-500/30 opacity-80 hover:opacity-100 transition-opacity">
+      </div>
+
+      <div class="max-w-6xl w-full my-auto">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-3">
+          The <span class="gold-gradient-text">Ascendia Horizon Engine™</span>
+        </h2>
+        <p class="text-slate-300 text-sm max-w-3xl mb-8">
+          Filtering thousands of chart tickers down to the few pristine setups that meet our strict risk parameters. If there is no setup, there is no trade.
+        </p>
+
+        <!-- Funnel Step Breakdown -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+          <!-- Step 1 -->
+          <div class="glass-card p-5 rounded-2xl border-l-4 border-l-slate-500">
+            <div class="flex justify-between items-center text-xs text-slate-400 mb-2">
+              <span class="font-bold uppercase">Stage 1: Scan</span>
+              <span class="px-2 py-0.5 bg-slate-800 rounded font-mono text-slate-300">500+ Assets</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-2">Automated Market Screen</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Algorithmic scanning for volume expansion, multi-week consolidation compression, and trend relative strength vs BTC/ETH.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="glass-card p-5 rounded-2xl border-l-4 border-l-brand-400">
+            <div class="flex justify-between items-center text-xs text-slate-400 mb-2">
+              <span class="font-bold uppercase">Stage 2: Filter</span>
+              <span class="px-2 py-0.5 bg-brand-900/60 text-brand-300 rounded font-mono">40 Setups</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-2">Price Action Confluence</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Key support/resistance retests, liquidity sweep confirmations, order flow momentum, and clear invalidation levels.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="glass-card p-5 rounded-2xl border-l-4 border-l-gold-400">
+            <div class="flex justify-between items-center text-xs text-slate-400 mb-2">
+              <span class="font-bold uppercase">Stage 3: Underwrite</span>
+              <span class="px-2 py-0.5 bg-gold-900/60 text-gold-300 rounded font-mono">12 Confirmed</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-2">2% Risk Sizing Check</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Exact position sizing calculation ensuring maximum risk &le; 2.0% of total pool capital, with defined stop-loss and take-profit targets.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="glass-card p-5 rounded-2xl border-l-4 border-l-emerald-400 bg-emerald-950/20">
+            <div class="flex justify-between items-center text-xs text-slate-400 mb-2">
+              <span class="font-bold uppercase text-emerald-400">Stage 4: Execute</span>
+              <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 rounded font-mono font-bold">3-5 High-Conviction</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-2">Disciplined Entry</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Limit order entry execution, trailing stop mechanics activated at 1R profit, and scale-out at multi-target expansions.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-6 p-4 rounded-xl glass-panel flex flex-col sm:flex-row items-center justify-between text-xs gap-3">
+          <div class="flex items-center space-x-2 text-slate-300">
+            <span class="text-gold-400 font-bold">⚡ Zero Emotional Interference:</span>
+            <span>Every single position has a predetermined entry, stop-loss, and multi-tier exit strategy before execution.</span>
+          </div>
+          <span class="font-mono text-emerald-400 font-bold text-sm whitespace-nowrap">&lt; 1% Setup Execution Rate</span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-white/10 pt-4">
+        <span>Proprietary Execution Funnel</span>
+        <span>Slide 07 of 13</span>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 8: REPRESENTATIVE CASE STUDIES -->
+    <!-- ========================================== -->
+    <section class="slide flex-col justify-between p-8 md:p-14" data-slide="8" data-title="Trade Case Studies">
+      <div class="flex items-center justify-between w-full">
+        <span class="text-xs font-bold text-gold-400 uppercase tracking-widest">08 // Execution Proof Points</span>
+        <img src="logo.jpg" alt="Ascendia" class="w-8 h-8 rounded-lg object-cover border border-gold-500/30 opacity-80 hover:opacity-100 transition-opacity">
+      </div>
+
+      <div class="max-w-6xl w-full my-auto">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-2">
+          Real Trade Setups & Execution
+        </h2>
+        <p class="text-slate-300 text-sm max-w-3xl mb-6">
+          Representative high-conviction trades illustrating our chartist methodology and strict 2% risk management.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Case 1 -->
+          <div class="glass-card p-5 rounded-2xl border border-white/10 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 text-[11px] font-bold text-brand-400 bg-brand-500/10 rounded-md">Macro Breakout</span>
+                <span class="text-xs font-mono text-emerald-400 font-bold">+148% Gain (7.4R)</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">Layer-1 Ecosystem Expansion</h3>
+              <p class="text-xs text-slate-400 mb-3">Multi-Month Range Breakout & Retest</p>
+              <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                Identified clean 12-week descending channel breakout on 1D timeframe. Entered on retest with 1.8% pool risk. Scaled out across 3 targets with trailing stop.
+              </p>
+            </div>
+            <div class="bg-navy-900/70 p-3 rounded-xl border border-white/5 text-xs space-y-1">
+              <div class="flex justify-between"><span class="text-slate-400">Risk vs Reward:</span> <span class="text-white font-medium">1 : 7.4 Realized R:R</span></div>
+              <div class="flex justify-between"><span class="text-slate-400">Pool Equity Impact:</span> <span class="text-emerald-400 font-bold">+13.3% Net Pool Gain</span></div>
+            </div>
+          </div>
+
+          <!-- Case 2 -->
+          <div class="glass-card p-5 rounded-2xl border border-white/10 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 text-[11px] font-bold text-gold-400 bg-gold-500/10 rounded-md">Liquidity Sweep Reversal</span>
+                <span class="text-xs font-mono text-gold-400 font-bold">+42% Swing (4.2R)</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">High-Volume Infrastructure Token</h3>
+              <p class="text-xs text-slate-400 mb-3">Key Demand Zone Sweep & Immediate Reclamation</p>
+              <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                False breakdown below major support swept stop orders followed by instant 4H candle reclamation. Sized at 2.0% risk with tight invalidation.
+              </p>
+            </div>
+            <div class="bg-navy-900/70 p-3 rounded-xl border border-white/5 text-xs space-y-1">
+              <div class="flex justify-between"><span class="text-slate-400">Hold Duration:</span> <span class="text-white font-medium">9 Days</span></div>
+              <div class="flex justify-between"><span class="text-slate-400">Pool Equity Impact:</span> <span class="text-emerald-400 font-bold">+8.4% Net Pool Gain</span></div>
+            </div>
+          </div>
+
+          <!-- Case 3 -->
+          <div class="glass-card p-5 rounded-2xl border border-white/10 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 rounded-md">Secured Staking Floor</span>
+                <span class="text-xs font-mono text-emerald-400 font-bold">11.5% APY Stables</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">Cash Reserve Yield Strategy</h3>
+              <p class="text-xs text-slate-400 mb-3">Over-Collateralized Lending & Institutional Staking</p>
+              <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                Unallocated cash and stable reserves deployed into audited institutional lending protocols generating baseline yield while waiting for pristine chart setups.
+              </p>
+            </div>
+            <div class="bg-navy-900/70 p-3 rounded-xl border border-white/5 text-xs space-y-1">
+              <div class="flex justify-between"><span class="text-slate-400">Principal Risk:</span> <span class="text-white font-medium">Near-Zero (Audited)</span></div>
+              <div class="flex justify-between"><span class="text-slate-400">Monthly Cash Flow:</span> <span class="text-emerald-400 font-bold">Consistent Monthly Yield</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-white/10 pt-4">
+        <span>Representative trade setups illustrate methodology and historical execution</span>
+        <span>Slide 08 of 13</span>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 9: RISK MANAGEMENT & CAPITAL PRESERVATION -->
+    <!-- ========================================== -->
+    <section class="slide flex-col justify-between p-8 md:p-14" data-slide="9" data-title="Risk & Capital Preservation">
+      <div class="flex items-center justify-between w-full">
+        <span class="text-xs font-bold text-gold-400 uppercase tracking-widest">09 // Capital Preservation</span>
+        <img src="logo.jpg" alt="Ascendia" class="w-8 h-8 rounded-lg object-cover border border-gold-500/30 opacity-80 hover:opacity-100 transition-opacity">
+      </div>
+
+      <div class="max-w-6xl w-full my-auto">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+          The <span class="gold-gradient-text">2% Rule</span> & Downside Architecture
+        </h2>
+        <p class="text-slate-300 text-sm max-w-3xl mb-8">
+          Survival is the primary skill. We obsess over downside protection so that the upside can take care of itself.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="glass-card p-5 rounded-2xl">
+            <div class="w-8 h-8 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold text-sm mb-3">🛡️</div>
+            <h4 class="text-base font-bold text-white mb-1">Max 2% Risk Rule</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              No single trade is ever permitted to risk more than 2% of the pool's total equity on a stop-out.
+            </p>
+          </div>
+
+          <div class="glass-card p-5 rounded-2xl">
+            <div class="w-8 h-8 rounded-lg bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold text-sm mb-3">🔒</div>
+            <h4 class="text-base font-bold text-white mb-1">Multisig Cold Storage</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Reserve assets secured via institutional multi-signature custody (Gnosis Safe / Fireblocks) with 3-of-5 key approvals.
+            </p>
+          </div>
+
+          <div class="glass-card p-5 rounded-2xl">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm mb-3">📊</div>
+            <h4 class="text-base font-bold text-white mb-1">Automated Stop Limits</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Hard stop-loss orders are submitted synchronously with every entry. Zero mental stops; zero hope trades.
+            </p>
+          </div>
+
+          <div class="glass-card p-5 rounded-2xl">
+            <div class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-sm mb-3">📈</div>
+            <h4 class="text-base font-bold text-white mb-1">Transparent Reporting</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Real-time member dashboard tracking every trade execution, net P&L, Sharpe ratio, and bimonthly payouts.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="p-3.5 rounded-xl bg-navy-800/80 border border-white/5 flex items-center justify-between">
+            <span class="text-xs text-slate-400">Risk Benchmark:</span>
+            <span class="text-xs font-bold text-white">Strict 2.0% Maximum Loss / Trade</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-navy-800/80 border border-white/5 flex items-center justify-between">
+            <span class="text-xs text-slate-400">Custody Standard:</span>
+            <span class="text-xs font-bold text-white">Tier-1 Institutional Multi-Sig</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-navy-800/80 border border-white/5 flex items-center justify-between">
+            <span class="text-xs text-slate-400">Audit & Log Integrity:</span>
+            <span class="text-xs font-bold text-white">100% On-Chain / Exchange Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-white/10 pt-4">
+        <span>Capital Preservation Architecture</span>
+        <span>Slide 09 of 13</span>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 10: INVESTMENT TIERS & SYNDICATE STRUCTURE -->
+    <!-- ========================================== -->
+    <section class="slide flex-col justify-between p-8 md:p-14" data-slide="10" data-title="Investment Tiers">
+      <div class="flex items-center justify-between w-full">
+        <span class="text-xs font-bold text-gold-400 uppercase tracking-widest">10 // Investment Tiers</span>
+        <img src="logo.jpg" alt="Ascendia" class="w-8 h-8 rounded-lg object-cover border border-gold-500/30 opacity-80 hover:opacity-100 transition-opacity">
+      </div>
+
+      <div class="max-w-6xl w-full my-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-4">
+          <div>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-1">
+              Flexible <span class="gold-gradient-text">Investment Tiers</span>
+            </h2>
+            <p class="text-slate-300 text-sm max-w-2xl">
+              Accessible entry sizing tailored for serious individuals, family accounts, and accredited partners.
+            </p>
+          </div>
+          <button onclick="openCalculator()" class="no-print mt-3 md:mt-0 inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 font-bold text-xs shadow-lg shadow-gold-500/20 hover:scale-105 transition-transform">
+            <span>🧮 Open Returns Simulator ($10k–$100k)</span>
+          </button>
+        </div>
+
+        <!-- 6-Tier Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-4">
+          <!-- Tier 10k -->
+          <div class="glass-card p-3.5 rounded-xl border border-white/10 text-center flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] text-slate-400 uppercase font-mono font-bold">Tier 1</span>
+              <div class="text-xl font-extrabold text-white font-serif my-1">$10,000</div>
+              <p class="text-[11px] text-slate-300">Community Member</p>
+            </div>
+            <div class="mt-2 pt-2 border-t border-white/5 text-[10px] text-emerald-400 font-semibold">
+              80/20 Split
+            </div>
+          </div>
+
+          <!-- Tier 20k -->
+          <div class="glass-card p-3.5 rounded-xl border border-white/10 text-center flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] text-slate-400 uppercase font-mono font-bold">Tier 2</span>
+              <div class="text-xl font-extrabold text-white font-serif my-1">$20,000</div>
+              <p class="text-[11px] text-slate-300">Core Partner</p>
+            </div>
+            <div class="mt-2 pt-2 border-t border-white/5 text-[10px] text-emerald-400 font-semibold">
+              80/20 Split
+            </div>
+          </div>
+
+          <!-- Tier 30k -->
+          <div class="glass-card p-3.5 rounded-xl border border-white/10 text-center flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] text-slate-400 uppercase font-mono font-bold">Tier 3</span>
+              <div class="text-xl font-extrabold text-white font-serif my-1">$30,000</div>
+              <p class="text-[11px] text-slate-300">Advantage Tier</p>
+            </div>
+            <div class="mt-2 pt-2 border-t border-white/5 text-[10px] text-emerald-400 font-semibold">
+              80/20 Split
+            </div>
+          </div>
+
+          <!-- Tier 40k -->
+          <div class="glass-card p-3.5 rounded-xl border border-white/10 text-center flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] text-slate-400 uppercase font-mono font-bold">Tier 4</span>
+              <div class="text-xl font-extrabold text-white font-serif my-1">$40,000</div>
+              <p class="text-[11px] text-slate-300">Select Tier</p>
+            </div>
+            <div class="mt-2 pt-2 border-t border-white/5 text-[10px] text-emerald-400 font-semibold">
+              80/20 Split
+            </div>
+          </div>
+
+          <!-- Tier 50k -->
+          <div class="glass-card p-3.5 rounded-xl border border-gold-500/30 text-center flex flex-col justify-between bg-gold-500/5">
+            <div>
+              <span class="text-[10px] text-gold-400 uppercase font-mono font-bold">Tier 5</span>
+              <div class="text-xl font-extrabold text-gold-400 font-serif my-1">$50,000</div>
+              <p class="text-[11px] text-white font-medium">Premium Partner</p>
+            </div>
+            <div class="mt-2 pt-2 border-t border-white/5 text-[10px] text-emerald-400 font-semibold">
+              80/20 + Monthly Call
+            </div>
+          </div>
+
+          <!-- Tier 100k -->
+          <div class="glass-card p-3.5 rounded-xl border border-brand-400/40 text-center flex flex-col justify-between bg-brand-500/10">
+            <div>
+              <span class="text-[10px] text-brand-400 uppercase font-mono font-bold">VIP Tier</span>
+              <div class="text-xl font-extrabold text-white font-serif my-1">$100,000+</div>
+              <p class="text-[11px] text-brand-300 font-bold">Anchor VIP</p>
+            </div>
+            <div class="mt-2 pt-2 border-t border-white/5 text-[10px] text-brand-300 font-semibold">
+              80/20 VIP Split
+            </div>
+          </div>
+        </div>
+
+        <!-- Syndicate Terms Breakdown -->
+        <div class="p-4 rounded-xl glass-panel grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+          <div>
+            <span class="text-slate-400">Profit Share & High-Water Mark:</span>
+            <div class="text-white font-bold mt-0.5">80% Investor / 20% Performance Fee (All Tiers)</div>
+          </div>
+          <div>
+            <span class="text-slate-400">Management Fee:</span>
+            <div class="text-emerald-400 font-bold mt-0.5">2.0% Annual Management Fee</div>
+          </div>
+          <div>
+            <span class="text-slate-400">Lock-in & Withdrawals:</span>
+            <div class="text-white font-bold mt-0.5">3-Month Initial Cycle · Monthly/Quarterly Exits</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-white/10 pt-4">
+        <span>Syndicate Investment Tiers ($10k to $100k)</span>
+        <span>Slide 10 of 13</span>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 11: LEADERSHIP & INVESTMENT COMMITTEE -->
+    <!-- ========================================== -->
+    <section class="slide flex-col justify-between p-8 md:p-14" data-slide="11" data-title="Leadership & Traders">
+      <div class="flex items-center justify-between w-full">
+        <span class="text-xs font-bold text-gold-400 uppercase tracking-widest">11 // Pedigree & Team</span>
+        <img src="logo.jpg" alt="Ascendia" class="w-8 h-8 rounded-lg object-cover border border-gold-500/30 opacity-80 hover:opacity-100 transition-opacity">
+      </div>
+
+      <div class="max-w-6xl w-full my-auto">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-2">
+          Experienced Execution Leadership
+        </h2>
+        <p class="text-slate-300 text-sm max-w-3xl mb-6">
+          Combining seasoned chart acumen, quantitative mathematical modeling, and institutional capital market relations.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Leader 1 -->
+          <div class="glass-card p-5 rounded-2xl border border-white/10">
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-400 flex items-center justify-center font-bold text-white text-lg">
+                CP
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white">Cody Paulson</h3>
+                <p class="text-xs text-gold-400 font-medium">Managing Partner & CIO</p>
+                <p class="text-[11px] text-slate-400">Head of Trading & Strategy</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              10+ years specializing in price action, macro liquidity cycles, and technical market structure. Oversees all trade entries, position sizing, and syndicate capital deployment.
+            </p>
+            <div class="text-[11px] font-mono text-brand-300 bg-navy-900/60 p-2 rounded border border-white/5">
+              Focus: Chart Execution & 2% Rule
+            </div>
+          </div>
+
+          <!-- Leader 2 -->
+          <div class="glass-card p-5 rounded-2xl border border-white/10">
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-gold-600 to-gold-400 flex items-center justify-center font-bold text-navy-950 text-lg">
+                EV
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white">Elena Vance, CFA</h3>
+                <p class="text-xs text-gold-400 font-medium">Partner, Quantitative Intelligence</p>
+                <p class="text-[11px] text-slate-400">PhD Applied Mathematics (MIT)</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              Pioneered algorithmic market telemetry, price action volume indicators, and breakout screening algorithms. Oversees the Ascendia Horizon Engine™.
+            </p>
+            <div class="text-[11px] font-mono text-gold-300 bg-navy-900/60 p-2 rounded border border-white/5">
+              Focus: Quant Screening & Data Telemetry
+            </div>
+          </div>
+
+          <!-- Leader 3 -->
+          <div class="glass-card p-5 rounded-2xl border border-white/10">
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-emerald-600 to-emerald-400 flex items-center justify-center font-bold text-white text-lg">
+                XK
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white">Xino Kai</h3>
+                <p class="text-xs text-gold-400 font-medium">Head of Investor Relations</p>
+                <p class="text-[11px] text-slate-400">Capital Markets & Member Success</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              Manages all syndicate member onboarding, investor allocations ($10k to $100k), transparent P&L reporting, and monthly distribution processing.
+            </p>
+            <div class="text-[11px] font-mono text-emerald-300 bg-navy-900/60 p-2 rounded border border-white/5">
+              Direct Contact: ir@ascendiainvestments.com
+            </div>
+          </div>
+        </div>
+
+        <!-- Advisory Board Strip -->
+        <div class="mt-6 p-3.5 rounded-xl glass-panel flex flex-wrap items-center justify-between text-xs gap-3">
+          <span class="text-gold-400 font-bold uppercase tracking-wider">Syndicate Standards:</span>
+          <span class="text-slate-300">Audited Exchange Execution</span>
+          <span class="text-slate-500">•</span>
+          <span class="text-slate-300">Dedicated Member Telegram/Discord</span>
+          <span class="text-slate-500">•</span>
+          <span class="text-slate-300">Live Weekly Market Breakdowns</span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-white/10 pt-4">
+        <span>Leadership & Management</span>
+        <span>Slide 11 of 13</span>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 12: CAPITAL DEPLOYMENT & ROADMAP -->
+    <!-- ========================================== -->
+    <section class="slide flex-col justify-between p-8 md:p-14" data-slide="12" data-title="Roadmap & Deployment">
+      <div class="flex items-center justify-between w-full">
+        <span class="text-xs font-bold text-gold-400 uppercase tracking-widest">12 // Execution Roadmap</span>
+        <img src="logo.jpg" alt="Ascendia" class="w-8 h-8 rounded-lg object-cover border border-gold-500/30 opacity-80 hover:opacity-100 transition-opacity">
+      </div>
+
+      <div class="max-w-6xl w-full my-auto">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-2">
+          Syndicate Pool Milestones
+        </h2>
+        <p class="text-slate-300 text-sm max-w-3xl mb-8">
+          A phased, disciplined rollout ensuring capital is never rushed into sub-optimal setups.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+          <!-- Timeline Phase 1 -->
+          <div class="glass-card p-5 rounded-2xl relative border-t-2 border-t-brand-400">
+            <span class="text-xs font-mono font-bold text-brand-400">Phase 1</span>
+            <h4 class="text-base font-bold text-white mt-1 mb-2">Genesis Pool Onboarding</h4>
+            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+              <li>Open $10k–$100k allocations</li>
+              <li>Member dashboard provisioning</li>
+              <li>Deploy baseline stable yield buffer</li>
+            </ul>
+          </div>
+
+          <!-- Timeline Phase 2 -->
+          <div class="glass-card p-5 rounded-2xl relative border-t-2 border-t-gold-400">
+            <span class="text-xs font-mono font-bold text-gold-400">Phase 2</span>
+            <h4 class="text-base font-bold text-white mt-1 mb-2">Core Trend Execution</h4>
+            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+              <li>Execute A+ macro breakout setups</li>
+              <li>Activate trailing profit targets</li>
+              <li>First bimonthly distribution cycle</li>
+            </ul>
+          </div>
+
+          <!-- Timeline Phase 3 -->
+          <div class="glass-card p-5 rounded-2xl relative border-t-2 border-t-emerald-400">
+            <span class="text-xs font-mono font-bold text-emerald-400">Phase 3</span>
+            <h4 class="text-base font-bold text-white mt-1 mb-2">Compounding & Scale</h4>
+            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+              <li>Optional profit reinvestment</li>
+              <li>Expansion pool cap ($2.5M - $5M)</li>
+              <li>Exclusive VIP strategy roundtables</li>
+            </ul>
+          </div>
+
+          <!-- Timeline Phase 4 -->
+          <div class="glass-card p-5 rounded-2xl relative border-t-2 border-t-purple-400">
+            <span class="text-xs font-mono font-bold text-purple-400">Phase 4</span>
+            <h4 class="text-base font-bold text-white mt-1 mb-2">Long-Term Wealth Capture</h4>
+            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+              <li>Multi-cycle capital preservation</li>
+              <li>Full flexible quarterly liquidity</li>
+              <li>Continued alpha generation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-8 p-4 rounded-xl glass-panel flex flex-col sm:flex-row items-center justify-between text-xs gap-3">
+          <div class="flex items-center space-x-2 text-slate-300">
+            <span class="text-emerald-400 font-bold">✨ Complete Member Transparency:</span>
+            <span>Live trade log access, verified monthly account statements, and direct communication with lead traders.</span>
+          </div>
+          <span class="font-mono text-gold-400 font-bold">Monthly Profit Statements</span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-white/10 pt-4">
+        <span>Syndicate Roadmap & Execution Schedule</span>
+        <span>Slide 12 of 13</span>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SLIDE 13: CALL TO ACTION & HOW TO JOIN -->
+    <!-- ========================================== -->
+    <section class="slide slide-scrollable flex-col justify-between p-8 md:p-14 pb-28" data-slide="13" data-title="Next Steps & Join">
+      <div class="flex items-center justify-between w-full">
+        <div class="flex items-center space-x-3">
+          <img src="logo.jpg" alt="Ascendia Logo" class="w-9 h-9 rounded-lg object-cover border border-gold-500/40 shadow-md shadow-gold-500/10">
+          <span class="text-sm font-bold text-white tracking-wider uppercase font-serif">Ascendia Investments Co</span>
+        </div>
+        <span class="px-3 py-1 text-xs font-bold text-gold-400 bg-gold-500/10 border border-gold-500/30 rounded-full">Genesis Allocation</span>
+      </div>
+
+      <div class="max-w-4xl w-full my-auto text-center mx-auto">
+        <!-- Logo Hero -->
+        <div class="flex justify-center mb-6">
+          <div class="relative">
+            <img src="logo.jpg" alt="Ascendia Investments Co" class="w-24 h-24 rounded-2xl object-cover border-2 border-gold-500/50 shadow-2xl shadow-gold-500/20">
+            <div class="absolute -inset-1 bg-gradient-to-tr from-gold-500/20 to-brand-500/20 rounded-2xl blur-md -z-10"></div>
+          </div>
+        </div>
+        <h2 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-4 leading-tight">
+          Join a <span class="gold-gradient-text">Serious Trading Collective</span>
+        </h2>
+        <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto mb-8">
+          Stop gambling and stop churning your account. Step into a proven, disciplined system with allocations starting at $10,000.
+        </p>
+
+        <!-- Tier Quick Selector in CTA -->
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-2.5 max-w-3xl mx-auto mb-8">
+          <div class="glass-card p-3 rounded-xl border border-white/5">
+            <span class="text-xs text-slate-400">Tier 1</span>
+            <div class="text-sm font-bold text-white">$10,000</div>
+          </div>
+          <div class="glass-card p-3 rounded-xl border border-white/5">
+            <span class="text-xs text-slate-400">Tier 2</span>
+            <div class="text-sm font-bold text-white">$20,000</div>
+          </div>
+          <div class="glass-card p-3 rounded-xl border border-white/5">
+            <span class="text-xs text-slate-400">Tier 3</span>
+            <div class="text-sm font-bold text-white">$30,000</div>
+          </div>
+          <div class="glass-card p-3 rounded-xl border border-white/5">
+            <span class="text-xs text-slate-400">Tier 4</span>
+            <div class="text-sm font-bold text-white">$40,000</div>
+          </div>
+          <div class="glass-card p-3 rounded-xl border border-gold-500/30 bg-gold-500/10">
+            <span class="text-xs text-gold-400">Tier 5</span>
+            <div class="text-sm font-bold text-gold-400">$50,000</div>
+          </div>
+          <div class="glass-card p-3 rounded-xl border border-brand-400/40 bg-brand-500/10">
+            <span class="text-xs text-brand-400">VIP</span>
+            <div class="text-sm font-bold text-white">$100,000+</div>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <a href="agreement.html" target="_blank" class="inline-flex items-center space-x-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 hover:from-gold-400 hover:to-gold-300 text-navy-950 font-extrabold text-sm shadow-xl shadow-gold-500/25 transition-all transform hover:scale-105 border border-gold-400/40">
+            <span>📄</span>
+            <span>Review & Execute Investor Agreement</span>
+            <span class="text-xs">↗</span>
+          </a>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl max-w-xl mx-auto border border-gold-500/30 glow-glow mb-8">
+          <div class="text-xs uppercase tracking-wider text-gold-400 font-bold mb-1">Investor Relations & Member Onboarding</div>
+          <div class="text-xl font-bold text-white">Xino Kai · Head of Investor Relations</div>
+          <div class="text-sm text-slate-300 mt-1">📧 <a href="mailto:ir@ascendiainvestments.com" class="text-brand-400 hover:underline font-medium">ir@ascendiainvestments.com</a> · 📞 +1 (212) 890-4500</div>
+          <div class="text-xs text-slate-400 mt-2">Ascendia Investments Co · New York · Global Syndicate</div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-slate-500 border-t border-white/10 pt-4">
+        <span>© 2026 Ascendia Investments Co. All rights reserved.</span>
+        <span>Slide 13 of 13</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- FLOATING BOTTOM CONTROL BAR (NO-PRINT & COLLAPSIBLE) -->
+  <!-- ========================================== -->
+  <div id="deckControlBar" class="no-print fixed bottom-3 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300">
+    <div class="flex items-center space-x-1.5 p-1.5 sm:p-2 rounded-2xl glass-panel border border-white/10 shadow-2xl backdrop-blur-xl">
+      <!-- Collapse / Minimize Toggle Button -->
+      <button onclick="toggleControlBar()" id="collapseBtn" title="Hide/Minimize Controls (or press H)" class="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors">
+        <svg id="collapseIcon" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+
+      <div id="controlBarExpanded" class="flex items-center space-x-1.5 sm:space-x-2">
+        <!-- Prev Button -->
+        <button onclick="prevSlide()" title="Previous Slide (←)" class="p-2 sm:p-2.5 rounded-xl bg-slate-800/80 hover:bg-brand-600 text-slate-200 hover:text-white transition-colors">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+
+        <!-- Slide Index Selector -->
+        <div class="px-2.5 sm:px-3 py-1 text-xs font-mono font-bold text-slate-300 flex items-center space-x-1">
+          <span id="currentSlideNum" class="text-gold-400 text-sm">01</span>
+          <span class="text-slate-500">/</span>
+          <span id="totalSlideNum" class="text-slate-400">13</span>
+        </div>
+
+        <!-- Next Button -->
+        <button onclick="nextSlide()" title="Next Slide (→)" class="p-2 sm:p-2.5 rounded-xl bg-slate-800/80 hover:bg-brand-600 text-slate-200 hover:text-white transition-colors">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+        <div class="w-px h-5 bg-white/10 mx-0.5"></div>
+
+
+        <!-- Returns Calculator Modal Trigger -->
+        <button onclick="openCalculator()" title="LP Return Simulator ($10k-$100k) (Key: C)" class="px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-slate-800/80 hover:bg-brand-600 hover:text-white text-brand-400 text-xs font-bold flex items-center space-x-1.5 transition-all">
+          <span>🧮</span>
+          <span class="hidden md:inline">Calculator</span>
+        </button>
+
+        <!-- Agreement Direct Link -->
+        <a href="agreement.html" target="_blank" title="Open Official Investor Syndicate Agreement" class="px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-slate-800/80 hover:bg-gold-500 hover:text-navy-950 text-gold-400 text-xs font-bold flex items-center space-x-1.5 transition-all">
+          <span>📄</span>
+          <span class="hidden md:inline">Agreement</span>
+        </a>
+
+        <!-- Slide Grid / Overview Trigger -->
+        <button onclick="openOverview()" title="Slide Overview Grid (Key: O)" class="p-2 sm:p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+        </button>
+
+        <!-- Print / Export to PDF -->
+        <button onclick="window.print()" title="Print / Save Deck as PDF (Key: P)" class="p-2 sm:p-2.5 rounded-xl bg-slate-800/80 hover:bg-emerald-600 text-slate-300 hover:text-white transition-colors">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- LP RETURN & PROJECTION CALCULATOR MODAL ($10k - $100k) -->
+  <!-- ========================================== -->
+  <div id="calcModal" class="no-print fixed inset-0 z-50 hidden items-center justify-center bg-navy-950/80 backdrop-blur-md p-4">
+    <div class="bg-navy-900 border border-white/10 rounded-2xl w-full max-w-2xl p-6 shadow-2xl relative">
+      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 rounded-lg bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold text-sm">🧮</div>
+          <div>
+            <h3 class="text-base font-bold text-white">Syndicate Returns & Growth Simulator</h3>
+            <p class="text-xs text-slate-400">Model net payouts and compounding for investment tiers ($10k to $100k)</p>
+          </div>
+        </div>
+        <button onclick="closeCalculator()" class="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Quick Select Tier Buttons -->
+      <div class="mb-5">
+        <label class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-2">Quick Select Tier:</label>
+        <div class="grid grid-cols-6 gap-2">
+          <button onclick="setCalcTier(10000)" class="py-1.5 px-2 bg-navy-800 hover:bg-brand-600 border border-white/10 rounded-lg text-xs font-bold text-slate-200 hover:text-white transition-colors">$10,000</button>
+          <button onclick="setCalcTier(20000)" class="py-1.5 px-2 bg-navy-800 hover:bg-brand-600 border border-white/10 rounded-lg text-xs font-bold text-slate-200 hover:text-white transition-colors">$20,000</button>
+          <button onclick="setCalcTier(30000)" class="py-1.5 px-2 bg-navy-800 hover:bg-brand-600 border border-white/10 rounded-lg text-xs font-bold text-slate-200 hover:text-white transition-colors">$30,000</button>
+          <button onclick="setCalcTier(40000)" class="py-1.5 px-2 bg-navy-800 hover:bg-brand-600 border border-white/10 rounded-lg text-xs font-bold text-slate-200 hover:text-white transition-colors">$40,000</button>
+          <button onclick="setCalcTier(50000)" class="py-1.5 px-2 bg-navy-800 hover:bg-gold-500 hover:text-navy-950 border border-gold-500/30 rounded-lg text-xs font-bold text-gold-400 transition-colors">$50,000</button>
+          <button onclick="setCalcTier(100000)" class="py-1.5 px-2 bg-navy-800 hover:bg-emerald-500 hover:text-navy-950 border border-emerald-500/30 rounded-lg text-xs font-bold text-emerald-400 transition-colors">$100,000</button>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Capital Commitment ($10k - $100k)</label>
+          <div class="flex items-center space-x-3 mb-2">
+            <input id="calcCommitment" type="range" min="10000" max="100000" step="5000" value="50000" oninput="updateCalculator()" class="w-full accent-gold-500 cursor-pointer">
+          </div>
+          <div class="flex justify-between text-xs font-mono text-gold-400 font-bold">
+            <span id="calcCommitmentDisplay">$50,000</span>
+            <span class="text-slate-500 text-[10px]">$10k to $100k</span>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Target Annual Net ROI (%)</label>
+          <div class="flex items-center space-x-3 mb-2">
+            <input id="calcIrr" type="range" min="20" max="60" step="1" value="38.5" oninput="updateCalculator()" class="w-full accent-brand-500 cursor-pointer">
+          </div>
+          <div class="flex justify-between text-xs font-mono text-brand-400 font-bold">
+            <span id="calcIrrDisplay">38.5% Net Target</span>
+            <span class="text-slate-500 text-[10px]">20% to 60%</span>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Time Horizon (Years / Months)</label>
+          <div class="flex items-center space-x-3 mb-2">
+            <input id="calcYears" type="range" min="1" max="5" step="0.5" value="2" oninput="updateCalculator()" class="w-full accent-emerald-500 cursor-pointer">
+          </div>
+          <div class="flex justify-between text-xs font-mono text-emerald-400 font-bold">
+            <span id="calcYearsDisplay">2 Years (24 Months)</span>
+            <span class="text-slate-500 text-[10px]">1 to 5 Yrs</span>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Profit Split Structure</label>
+          <div class="p-2.5 rounded-xl bg-navy-800/80 border border-white/5 text-xs flex justify-between items-center text-slate-300">
+            <span>80% Investor / 20% GP Carry</span>
+            <span class="text-gold-400 font-bold">High-Water Mark</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-navy-950 p-4 rounded-xl border border-white/5 mb-4">
+        <div>
+          <span class="text-[10px] uppercase text-slate-400">Total Net Value</span>
+          <div id="calcNetDist" class="text-lg font-extrabold text-white font-serif mt-0.5">$95,900</div>
+        </div>
+        <div>
+          <span class="text-[10px] uppercase text-slate-400">Net Profit</span>
+          <div id="calcNetProfit" class="text-lg font-extrabold text-emerald-400 font-serif mt-0.5">+$45,900</div>
+        </div>
+        <div>
+          <span class="text-[10px] uppercase text-slate-400">Multiple (MOIC)</span>
+          <div id="calcNetMoic" class="text-lg font-extrabold text-gold-400 font-serif mt-0.5">1.92x</div>
+        </div>
+        <div>
+          <span class="text-[10px] uppercase text-slate-400">Est. Monthly Return</span>
+          <div id="calcMonthlyReturn" class="text-lg font-extrabold text-brand-400 font-serif mt-0.5">$1,912 / mo</div>
+        </div>
+      </div>
+
+      <p class="text-[10px] text-slate-500 text-center">
+        *Estimates are for illustrative scenario modeling based on historical strategy telemetry and active profit-share mechanics.
+      </p>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- SLIDE OVERVIEW GRID MODAL -->
+  <!-- ========================================== -->
+  <div id="overviewModal" class="no-print fixed inset-0 z-50 hidden items-center justify-center bg-navy-950/90 backdrop-blur-md p-6">
+    <div class="w-full max-w-5xl h-[85vh] flex flex-col justify-between">
+      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+        <div>
+          <h3 class="text-lg font-bold text-white">Slide Deck Overview</h3>
+          <p class="text-xs text-slate-400">Click any slide to jump directly</p>
+        </div>
+        <button onclick="closeOverview()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div id="overviewGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 overflow-y-auto p-2">
+        <!-- Rendered via JS -->
+      </div>
+
+      <div class="pt-4 border-t border-white/10 text-right">
+        <button onclick="closeOverview()" class="px-4 py-2 bg-slate-800 text-white rounded-xl text-xs font-bold hover:bg-slate-700">Close Overview</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- JAVASCRIPT SLIDE ENGINE -->
+  <!-- ========================================== -->
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 13;
+    const slides = document.querySelectorAll('.slide');
+
+    function updateSlide(index) {
+      if (index < 1) index = 1;
+      if (index > totalSlides) index = totalSlides;
+      currentSlide = index;
+
+      slides.forEach((slide) => {
+        const slideNum = parseInt(slide.getAttribute('data-slide'));
+        if (slideNum === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      document.getElementById('currentSlideNum').innerText = String(currentSlide).padStart(2, '0');
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        updateSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        updateSlide(currentSlide - 1);
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        prevSlide();
+      } else if (e.key === 'c' || e.key === 'C') {
+        const modal = document.getElementById('calcModal');
+        if (modal.classList.contains('hidden')) openCalculator();
+        else closeCalculator();
+      } else if (e.key === 'o' || e.key === 'O') {
+        const modal = document.getElementById('overviewModal');
+        if (modal.classList.contains('hidden')) openOverview();
+        else closeOverview();
+      } else if (e.key === 'h' || e.key === 'H') {
+        toggleControlBar();
+      } else if (e.key === 'Escape') {
+        closeCalculator();
+        closeOverview();
+      }
+    });
+
+    // Toggle Floating Control Bar
+    let isControlBarCollapsed = false;
+    function toggleControlBar() {
+      const expanded = document.getElementById('controlBarExpanded');
+      const icon = document.getElementById('collapseIcon');
+      isControlBarCollapsed = !isControlBarCollapsed;
+      if (isControlBarCollapsed) {
+        expanded.classList.add('hidden');
+        icon.classList.add('rotate-180');
+        document.getElementById('collapseBtn').setAttribute('title', 'Show Controls (Key: H)');
+      } else {
+        expanded.classList.remove('hidden');
+        icon.classList.remove('rotate-180');
+        document.getElementById('collapseBtn').setAttribute('title', 'Hide Controls (Key: H)');
+      }
+    }
+
+    // LP Return Calculator Logic ($10k to $100k)
+    function openCalculator() {
+      document.getElementById('calcModal').classList.remove('hidden');
+      document.getElementById('calcModal').classList.add('flex');
+      updateCalculator();
+    }
+
+    function closeCalculator() {
+      document.getElementById('calcModal').classList.add('hidden');
+      document.getElementById('calcModal').classList.remove('flex');
+    }
+
+    function setCalcTier(val) {
+      document.getElementById('calcCommitment').value = val;
+      updateCalculator();
+    }
+
+    function updateCalculator() {
+      const commitment = parseFloat(document.getElementById('calcCommitment').value);
+      const grossRoi = parseFloat(document.getElementById('calcIrr').value) / 100;
+      const years = parseFloat(document.getElementById('calcYears').value);
+
+      document.getElementById('calcCommitmentDisplay').innerText = '$' + commitment.toLocaleString();
+      document.getElementById('calcIrrDisplay').innerText = (grossRoi * 100).toFixed(1) + '% Target Net';
+      document.getElementById('calcYearsDisplay').innerText = years + (years === 1 ? ' Year (' : ' Years (') + Math.round(years * 12) + ' Months)';
+
+      // 80/20 profit split across all tiers
+      const investorSplit = 0.80;
+      const compoundFactor = Math.pow(1 + grossRoi, years);
+      const grossTotal = commitment * compoundFactor;
+      const grossProfit = grossTotal - commitment;
+      const netProfit = grossProfit * investorSplit;
+      const netTotalDistribution = commitment + netProfit;
+      const netMoic = netTotalDistribution / commitment;
+      const monthlyReturn = (netProfit / (years * 12));
+
+      document.getElementById('calcNetDist').innerText = '$' + Math.round(netTotalDistribution).toLocaleString();
+      document.getElementById('calcNetProfit').innerText = '+$' + Math.round(netProfit).toLocaleString();
+      document.getElementById('calcNetMoic').innerText = netMoic.toFixed(2) + 'x';
+      document.getElementById('calcMonthlyReturn').innerText = '$' + Math.round(monthlyReturn).toLocaleString() + ' / mo';
+    }
+
+    // Overview Grid Logic
+    function openOverview() {
+      const modal = document.getElementById('overviewModal');
+      const grid = document.getElementById('overviewGrid');
+      grid.innerHTML = '';
+
+      slides.forEach((slide) => {
+        const num = parseInt(slide.getAttribute('data-slide'));
+        const title = slide.getAttribute('data-title') || `Slide ${num}`;
+        const card = document.createElement('div');
+        card.className = `p-4 rounded-xl cursor-pointer border transition-all ${
+          num === currentSlide
+            ? 'bg-brand-900/40 border-gold-400 ring-2 ring-gold-400/30'
+            : 'glass-card hover:border-brand-400'
+        }`;
+        card.innerHTML = `
+          <div class="flex justify-between items-center text-xs text-slate-400 mb-1">
+            <span class="font-mono font-bold text-gold-400">${String(num).padStart(2, '0')}</span>
+            <span class="text-[10px] text-slate-500">Slide ${num}</span>
+          </div>
+          <div class="text-xs font-bold text-white line-clamp-2">${title}</div>
+        `;
+        card.onclick = () => {
+          updateSlide(num);
+          closeOverview();
+        };
+        grid.appendChild(card);
+      });
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeOverview() {
+      document.getElementById('overviewModal').classList.add('hidden');
+      document.getElementById('overviewModal').classList.remove('flex');
+    }
+
+    // Initialize
+    updateSlide(1);
+    updateCalculator();
+  </script>
+</body>
+</html>

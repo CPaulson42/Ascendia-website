@@ -1,0 +1,41 @@
+//@version=5
+indicator("19:00 Daily Marker", overlay=true, max_lines_count=500)
+
+// --- Inputs -------------------------------------------------------------------
+markHour   = input.int(19, "Hour to Mark (0-23)", minval=0, maxval=23)
+lineColor  = input.color(color.new(color.yellow, 0), "Line Color")
+lineWidth  = input.int(1, "Line Width", minval=1, maxval=4)
+lineStyle  = input.string("Solid", "Line Style",
+             options=["Solid", "Dashed", "Dotted"])
+showLabel  = input.bool(true, "Show Label")
+labelColor = input.color(color.new(color.yellow, 0), "Label Background")
+tz         = input.string("America/New_York", "Timezone",
+             tooltip="Use IANA timezone names, e.g. America/New_York, UTC, America/Los_Angeles")
+
+// --- Helpers ------------------------------------------------------------------
+toStyle(s) =>
+    s == "Dashed" ? line.style_dashed :
+     s == "Dotted" ? line.style_dotted :
+     line.style_solid
+
+int barHour   = hour(time, tz)
+int barMinute = minute(time, tz)
+
+// Trigger on the first bar of the target hour (minute == 0)
+bool isMark = barHour == markHour and barMinute == 0
+
+// --- Draw ---------------------------------------------------------------------
+if isMark
+    l = line.new(bar_index, high, bar_index, low,
+                 extend    = extend.both,
+                 color     = lineColor,
+                 width     = lineWidth,
+                 style     = toStyle(lineStyle))
+
+    if showLabel
+        label.new(bar_index, high,
+                  text      = str.format("{0}:00", markHour),
+                  color     = labelColor,
+                  textcolor = color.black,
+                  style     = label.style_label_down,
+                  size      = size.small)
